@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airplane Ticket Booking</title>
+  <style>
+
+    .title-nav {
+    height: 85px;
+    background-color: rgb(62, 64, 167);
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.445);
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.leftSide {
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+}
+.leftSide a{
+  color: rgb(240, 231, 231);
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+.rightSide {
+  margin-right: 40px;
+  text-align: left;
+}
+.rightSide a {
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  font-size: 35px;
+  padding-right: 30px;
+  text-decoration: none;
+
+}
+.rightSide a:hover {
+  text-decoration: underline;
+}
+
+.Hamburger-menu {
+  background-color: rgb(45, 172, 13);
+  border: none;
+  margin-right: 20px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropd {
+  display: none;
+  position: absolute;
+  left: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  z-index: 1;
+}
+.dropd a {
+  color: black;
+  display: block;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 12px 16px;
+}
+.dropdown:hover .dropd {
+  display: block;
+}
+.dropd a:hover {
+  text-decoration: underline;
+  color: red;
+  background-color: rgb(238, 238, 238);
+}
+
+/* CSS styles for the card container and individual cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center align cards horizontally */
+}
+
+.card {
+  width:450px;/* Adjust the width of the card as needed */
+  height: 120px;
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #a97fff;
+  border-radius: 25px;
+  flex-direction: column;
+  align-items: center; /* Align card content to the top */
+ 
+}
+
+.card img {
+  height: 70px; /* Set the height of the image to match the height of the card */
+  border-radius: 25px; /* Ensure the image follows the border radius of the card */
+  width: 150px; /* Allow the image width to adjust automatically */
+  align-self: flex-start; /* Align to the right */
+}
+
+/* Positioning for desktop screens */
+@media (min-width: 968px) {
+  .card {
+    position: relative; /* Relative positioning */
+    left: 75px; /* Move the cards 50px away from the left margin */
+  }
+}
+
+/* Positioning for smaller screens */
+@media (max-width: 767px) {
+  .card {
+    position: relative; /* Relative positioning */
+    left: 75px; /* Move the cards 20px away from the left margin */
+  }
+}
+
+.card-content {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align card content */
+  margin-top: -75px; /* Add margin to separate contents from the top */
+}
+
+.card-content h4 {
+  margin: 0;
+  font-weight: bold; /* Moved font weight */
+  font-size: 20px; /* Moved font size */
+  
+}
+
+.card-content p {
+  margin: 0;
+  line-height: 1.5;
+ 
+}
+
+
+
+/* Align the amount to bottom right */
+.amount {
+  margin-top: auto; /* Align to the bottom */
+  font-size: 16px; /* Adjust font size if needed */
+  align-self: flex-end; /* Align to the right */
+}
+
+  </style>
+</head>
+<body>
+ 
+ <nav class="title-nav">
+ <div class="rightSide">
+  <div class="dropdown">
+    <button class="Hamburger-menu" title="Menu">
+      <img src="photos/TICKET.jpg" alt="Airline Logo" width="40px">
+    </button>
+      <div class="dropd">
+          <a href="flights.html">Check Flights</a>
+          <a href="#" title="Go To Contact Page">Feedback</a>
+          <a href="UserDetails.html">User Details</a>
+          <a href="About Us.html">Contact Us</a>     
+      </div>
+    </div>  
+    
+  
+  <div class="rightSide" >
+      <a href="Distinations.html">Distinations</a>
+      <a href="news.html">News</a>
+      <a href="about page.html">About Us</a>
+     
+  </div>
+ 
+</nav>
+ 
+ 
+  <section class="search-results">
+    <h2>Search Results</h2>
+    <p>No results found yet. Please enter your search criteria above.</p>
+  </section>
+
+
+  <form action="/search" method="get">
+    <div class="search-bar">
+      <label for="from">From:</label>
+      <input type="text" id="from" name="from" placeholder="Enter departure city">
+      <label for="to">To:</label>
+      <input type="text" id="to" name="to" placeholder="Enter arrival city">
+      <label for="date">Departure Date:</label>
+      <input type="date" id="date" name="date">
+
+      <label for="date">Return Date:</label>
+      <input type="date" id="date" name="date">
+
+      <button type="submit">Search Flights</button>
+    </div>
+  </form>
+
+  <section class="featured-destinations">
+    <br>
+    <br>
+    <h1>Explore Popular Destinations</h1>
+     <!-- Card for Livingstone -->
+    <div class="card">    
+        <img src="photos/PIC10.jpg" alt="Livingstone">
+        <div class="card-content">
+          <h4>Livingstone</h4>
+          <p>Feb 29 - Mar 15</p>
+          <p>Non stop 2hrs</p>
+        </div>
+        <h5 class="amount">ZMW 3,500</h5>
+      </div>
+      
+      <!-- Card for Victoria Falls -->
+      <div class="card">
+        <img src="photos/PIC2 (1).webp" alt="Victoria Falls">
+        <div class="card-content">
+          <h4>Victoria Falls</h4>
+          <p>Jul 01 - jul 25</p>
+          <p>Non stop 4hrs </p>    
+        </div>
+          <h5 class="amount">ZMW 3,500</h5>
+      </div>
+     
+      <!-- Card for Eastern Province -->
+      <div class="card">
+        <img src="photos/PIC3.jpg" alt="Lower Zambezi National Park">
+        <div class="card-content">
+          <h4>Eastern Province</h4>
+          <p>May 05 - Jun 02</p>
+          <p>1 stop 10hrs 40min </p>
+        </div>  
+          <h5 class="amount">ZMW 18,000</h5>
+      </div>
+  </section>
+
+  
+  <footer>
+    <p>&copy; Yango APLOT 2024</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
