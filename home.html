@@ -7,7 +7,7 @@
   <style>
 
     .title-nav {
-    height: 85px;
+    height: 100px;
     background-color: rgb(62, 64, 167);
     display: flex;
     justify-content: space-between;
@@ -18,140 +18,240 @@
     right: 0;
     left: 0;
     z-index: 1;
+  }
+
+    .leftSide {
+      display: flex;
+      align-items: center;
+      margin-left: 100px;
+    }
+    .leftSide a{
+      color: rgb(240, 231, 231);
+      font-size: 30px;
+      font-weight: bold;
+      padding-left: 20px;
+    }
+    .rightSide {
+      margin-right: 40px;
+      text-align: left;
+    }
+    .rightSide a {
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+      font-size: 35px;
+      padding-right: 30px;
+      text-decoration: none;
+
+    }
+    .rightSide a:hover {
+      text-decoration: underline;
+    }
+
+    .Hamburger-menu {
+      background-color: rgb(45, 172, 13);
+      border: none;
+      margin-right: 20px;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropd {
+      display: none;
+      position: absolute;
+      left: 10px;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+    .dropd a {
+      color: black;
+      display: block;
+      font-size: 15px;
+      text-decoration: none;
+      padding: 12px 16px;
+    }
+    .dropdown:hover .dropd {
+      display: block;
+    }
+    .dropd a:hover {
+      text-decoration: underline;
+      color: red;
+      background-color: rgb(238, 238, 238);
+    }
+
+    /* CSS style for the form */
+    .search-form {
+     
+      width: 70%; /* Adjust width as needed */
+      height: auto;
+      margin-left: 30px; 
+    
+      background-color: #f1f0f0;
+      border-radius: 20px;
+      padding-top: 1px;
+     
+    }
+
+    .search-bar {
+      margin-top: 50px; /* Add margin to the top */
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 20px;
+      gap: 10px;
+    }
+
+    label {
+      width: 60px; /* Adjust label width as needed */
+      flex: 0 0 50px; /* Adjust label width as needed */
+     
+    }
+
+    input, button {
+      
+      padding: 10px;
+      border: 1px solid #d6d1d1;
+      border-radius: 10px;
+      font-size: 14px;
+      height: 5px;
+      width: calc(25% - 120px); /* Adjust input width for responsiveness */
+      
+    }
+
+    button {
+      background-color: #c8d2df;
+      color: #000000;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+     
+    
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Center the "Search Flights" button */
+    button[type="submit"] {
+
+      margin-top: 10px;
+      width: 15%; /* Set button width */
+      margin-left: auto; /* Center button horizontally */
+      margin-right: auto; /* Center button horizontally */
+      text-align: center; /* Center text horizontally */
+      height: 40px;
+     
+    
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+  .search-form {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
+  label {
+    flex: 0 0 50%; /* Make labels take full width on smaller screens */
+  }
+
+  input,
+  button {
+    width: calc(50% - 20px); /* Adjust input width for smaller screens */
+  }
+
+  button[type="submit"] {
+    margin-left: 0; /* Remove left margin */
+  }
 }
 
-.leftSide {
-  display: flex;
-  align-items: center;
-  margin-left: 100px;
-}
-.leftSide a{
-  color: rgb(240, 231, 231);
-  font-size: 30px;
-  font-weight: bold;
-  padding-left: 20px;
-}
-.rightSide {
-  margin-right: 40px;
-  text-align: left;
-}
-.rightSide a {
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  font-size: 35px;
-  padding-right: 30px;
-  text-decoration: none;
 
-}
-.rightSide a:hover {
-  text-decoration: underline;
-}
+    /* CSS styles for the card container and individual cards */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Center align cards horizontally */
+     
+    }
 
-.Hamburger-menu {
-  background-color: rgb(45, 172, 13);
-  border: none;
-  margin-right: 20px;
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropd {
-  display: none;
-  position: absolute;
-  left: 10px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
-  z-index: 1;
-}
-.dropd a {
-  color: black;
-  display: block;
-  font-size: 15px;
-  text-decoration: none;
-  padding: 12px 16px;
-}
-.dropdown:hover .dropd {
-  display: block;
-}
-.dropd a:hover {
-  text-decoration: underline;
-  color: red;
-  background-color: rgb(238, 238, 238);
-}
+    .card {
+      text-decoration: none;
+      width:450px;/* Adjust the width of the card as needed */
+      height: 120px;
+      display: flex;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #a97fff;
+      border-radius: 25px;
+      flex-direction: column;
+      align-items: center; /* Align card content to the top */
+      align-items: center; /* Align card content to the top */
+      transition: transform 0.3s ease; /* Add transition for smooth movement */
+      color: #000000;
+    
+    }
+    .card:hover {
+      transform: translateY(-20px); /* Move the card up by 10px on hover */
+    }
 
-/* CSS styles for the card container and individual cards */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Center align cards horizontally */
-}
+    .card img {
+      height: 70px; /* Set the height of the image to match the height of the card */
+      border-radius: 25px; /* Ensure the image follows the border radius of the card */
+      width: 150px; /* Allow the image width to adjust automatically */
+      align-self: flex-start; /* Align to the right */
+    }
 
-.card {
-  width:450px;/* Adjust the width of the card as needed */
-  height: 120px;
-  display: flex;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #a97fff;
-  border-radius: 25px;
-  flex-direction: column;
-  align-items: center; /* Align card content to the top */
+    /* Positioning for desktop screens */
+    @media (min-width: 968px) {
+      .card {
+        position: relative; /* Relative positioning */
+        left: 25px; /* Move the cards 50px away from the left margin */
+      }
+    }
+
+    /* Positioning for smaller screens */
+    @media (max-width: 767px) {
+      .card {
+        position: relative; /* Relative positioning */
+        left: 75px; /* Move the cards 20px away from the left margin */
+      }
+    }
+
+    .card-content {
+      flex: 1; /* Take up remaining space */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center align card content */
+      margin-top: -75px; /* Add margin to separate contents from the top */
+   
+    }
+
+
+    .card-content h4 {
+      margin: 0;
+      font-weight: bold; /* Moved font weight */
+      font-size: 20px; /* Moved font size */
  
-}
+      
+    }
 
-.card img {
-  height: 70px; /* Set the height of the image to match the height of the card */
-  border-radius: 25px; /* Ensure the image follows the border radius of the card */
-  width: 150px; /* Allow the image width to adjust automatically */
-  align-self: flex-start; /* Align to the right */
-}
-
-/* Positioning for desktop screens */
-@media (min-width: 968px) {
-  .card {
-    position: relative; /* Relative positioning */
-    left: 75px; /* Move the cards 50px away from the left margin */
-  }
-}
-
-/* Positioning for smaller screens */
-@media (max-width: 767px) {
-  .card {
-    position: relative; /* Relative positioning */
-    left: 75px; /* Move the cards 20px away from the left margin */
-  }
-}
-
-.card-content {
-  flex: 1; /* Take up remaining space */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center align card content */
-  margin-top: -75px; /* Add margin to separate contents from the top */
-}
-
-.card-content h4 {
-  margin: 0;
-  font-weight: bold; /* Moved font weight */
-  font-size: 20px; /* Moved font size */
+    .card-content p {
+      margin: 0;
+      line-height: 1.5;
   
-}
-
-.card-content p {
-  margin: 0;
-  line-height: 1.5;
- 
-}
+    
+    }
 
 
 
-/* Align the amount to bottom right */
-.amount {
-  margin-top: auto; /* Align to the bottom */
-  font-size: 16px; /* Adjust font size if needed */
-  align-self: flex-end; /* Align to the right */
-}
+    /* Align the amount to bottom right */
+    .amount {
+      margin-top: auto; /* Align to the bottom */
+      font-size: 16px; /* Adjust font size if needed */
+      align-self: flex-end; /* Align to the right */
+      color: #000000;
+      text-decoration: none;
+    }
+
 
   </style>
 </head>
@@ -180,15 +280,13 @@
   </div>
  
 </nav>
- 
- 
-  <section class="search-results">
-    <h2>Search Results</h2>
-    <p>No results found yet. Please enter your search criteria above.</p>
-  </section>
 
+<section class="search-results">
+  <h2>Search Results</h2>
+  <p>No results found yet. Please enter your search criteria above.</p>
+</section>
 
-  <form action="/search" method="get">
+<form action="/search" method="get" class="search-form">
     <div class="search-bar">
       <label for="from">From:</label>
       <input type="text" id="from" name="from" placeholder="Enter departure city">
@@ -204,12 +302,13 @@
     </div>
   </form>
 
+  
   <section class="featured-destinations">
-    <br>
-    <br>
+   <br>
     <h1>Explore Popular Destinations</h1>
      <!-- Card for Livingstone -->
-    <div class="card">    
+    <a href="details/livingstone.html" class="card">
+  
         <img src="photos/PIC10.jpg" alt="Livingstone">
         <div class="card-content">
           <h4>Livingstone</h4>
@@ -217,10 +316,10 @@
           <p>Non stop 2hrs</p>
         </div>
         <h5 class="amount">ZMW 3,500</h5>
-      </div>
+        </a>
       
       <!-- Card for Victoria Falls -->
-      <div class="card">
+      <a href="details/livingstone.html" class="card">
         <img src="photos/PIC2 (1).webp" alt="Victoria Falls">
         <div class="card-content">
           <h4>Victoria Falls</h4>
@@ -228,10 +327,11 @@
           <p>Non stop 4hrs </p>    
         </div>
           <h5 class="amount">ZMW 3,500</h5>
-      </div>
-     
+          </a>
+      
+    
       <!-- Card for Eastern Province -->
-      <div class="card">
+      <a href="details/livingstone.html" class="card">
         <img src="photos/PIC3.jpg" alt="Lower Zambezi National Park">
         <div class="card-content">
           <h4>Eastern Province</h4>
@@ -240,7 +340,8 @@
         </div>  
           <h5 class="amount">ZMW 18,000</h5>
       </div>
-  </section>
+    </a>
+  </body>
 
   
   <footer>
