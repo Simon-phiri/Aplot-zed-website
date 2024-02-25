@@ -252,6 +252,52 @@
       text-decoration: none;
     }
 
+        .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .card-container {
+      flex: 1;
+    }
+
+    .map {
+      flex: 1;
+      margin-top: -500px; /* Adjust margin as needed */
+      margin-left: 590px;
+      margin-right: auto;
+      display: block;
+      
+    }
+
+    /* Positioning the map for smaller screens */
+    @media (max-width: 767px) {
+      .map {
+        position: relative; /* Relative positioning */
+        left: 75px; /* Move the map 20px away from the left margin */
+      }
+
+      .map {
+        width: 100%; /* Take up full width of its parent container */
+        height: 450px; /* Set initial height */
+        overflow: hidden; /* Ensure map doesn't overflow container */
+        margin-top: 20px; /* Add some space between the map and other elements */
+    }
+
+    .map iframe {
+        width: 100%; /* Make the iframe fill its container */
+        height: 100%; /* Make the iframe fill its container */
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 767px) {
+        .map {
+            height: 300px; /* Decrease the height for smaller screens */
+        }
+  
+      }
+}     
 
   </style>
 </head>
@@ -341,6 +387,13 @@
           <h5 class="amount">ZMW 18,000</h5>
       </div>
     </a>
+
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15914390.878582485!2d27.854191!3d-13.140351!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f4a5fcfc0b71%3A0xf19ff9ac7e583e45!2sZambia!5e0!3m2!1sen!2szm!4v1708838386329" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="fullscreen"></iframe>
+
+    </div>
+
+    
   </body>
 
   
