@@ -92,6 +92,31 @@
         <input type="email" id="email" name="email" required><br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br>
+	<label for="nationality">Nationality:</label>
+	<br>
+        <select id="nationality" name="nationality" required>
+            <option value="">Select Nationality</option>
+            <option value="Zambian">Zambian</option> 
+            <option value="Foreign national residing in Zambia">Foreign national residing in Zambia</option>
+            <option value="Other African countries">Other African countries</option>
+            <option value="Other World countries">Other World countries</option>
+        </select><br><br>
+
+	 <label for="date-of-birth">Date of Birth:</label>
+        <input type="date" id="date-of-birth" name="date_of_birth" required>
+        <br><br>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Prefer Not to say">Prefer Not to Say</option>
+        </select>
+	<br><br>
+
+	<label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+260" required>
+        
         <button type="submit">Register</button>
     </form>
     <div id="message"></div>
