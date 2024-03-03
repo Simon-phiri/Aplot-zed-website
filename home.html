@@ -7,7 +7,7 @@
   <style>
 
     .title-nav {
-    height: 100px;
+    height: 50px;
     background-color: rgb(62, 64, 167);
     display: flex;
     justify-content: space-between;
@@ -22,7 +22,7 @@
 
     .leftSide {
       display: flex;
-      align-items: center;
+      align-items: left;
       margin-left: 100px;
     }
     .leftSide a{
@@ -33,14 +33,15 @@
     }
     .rightSide {
       margin-right: 40px;
-      text-align: left;
+      text-align: right;
     }
     .rightSide a {
       font-weight: bold;
       color: rgb(255, 255, 255);
-      font-size: 35px;
+      font-size: 20px;
       padding-right: 30px;
       text-decoration: none;
+      padding-top: 15px;
 
     }
     .rightSide a:hover {
@@ -48,7 +49,7 @@
     }
 
     .Hamburger-menu {
-      background-color: rgb(45, 172, 13);
+      background-color: rgb(23, 7, 255);
       border: none;
       margin-right: 20px;
     }
@@ -60,24 +61,36 @@
       display: none;
       position: absolute;
       left: 10px;
-      background-color: rgb(255, 255, 255);
+      background-color: green;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
       z-index: 1;
+      width: 300%;
+      height: 440%;
     }
     .dropd a {
-      color: black;
+      color: white;
       display: block;
       font-size: 15px;
       text-decoration: none;
       padding: 12px 16px;
+      width: 100%;
     }
     .dropdown:hover .dropd {
       display: block;
     }
     .dropd a:hover {
       text-decoration: underline;
-      color: red;
+      color: blue;
       background-color: rgb(238, 238, 238);
+    
+    }
+
+    .logo-image {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      padding-top: 3%;
+      padding-left: 25%;
     }
 
     /* CSS style for the form */
@@ -284,7 +297,7 @@
     @media (max-width: 767px) {
       .map {
         width: 95%; /* Take up full width of its parent container */
-        height: 250px; /* Set initial height */
+        height: 450px; /* Set initial height */
         overflow: hidden; /* Ensure map doesn't overflow container */
         margin-top: 20px; /* Add some space between the map and other elements */
         padding-left: 20px; /* Add padding to the left side */
@@ -304,7 +317,7 @@
 <body>
  
  <nav class="title-nav">
- <div class="rightSide">
+
   <div class="dropdown">
     <button class="Hamburger-menu" title="Menu">
       <img src="photos/TICKET.jpg" alt="Airline Logo" width="40px">
@@ -317,20 +330,19 @@
       </div>
     </div>  
     
-  
   <div class="rightSide" >
       <a href="Distinations.html">Distinations</a>
       <a href="news.html">News</a>
       <a href="about page.html">About Us</a>
-     
   </div>
- 
 </nav>
 
-<section class="search-results">
-  <h2>Search Results</h2>
-  <p>No results found yet. Please enter your search criteria above.</p>
-</section>
+<!-- Big display image -->
+<div class="logo-image">
+  <img src="photos/TICKET.jpg" alt="Logo Display Image">
+</div>
+
+
 
 <form action="/search" method="get" class="search-form">
     <div class="search-bar">
@@ -353,7 +365,7 @@
    <br>
     <h1>Explore Popular Destinations</h1>
      <!-- Card for Livingstone -->
-    <a href="details/livingstone.html" class="card">
+    <a href="detailslivingstone.html" class="card">
   
         <img src="photos/PIC10.jpg" alt="Livingstone">
         <div class="card-content">
