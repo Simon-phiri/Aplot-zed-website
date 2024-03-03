@@ -1,0 +1,129 @@
+<DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>ExploreLivinstone</title>
+            
+            <style>
+                h1 {
+                    font-size: 34px;
+                    text-align: center;
+                    color: greenyellow;
+                    background-color: blue;
+                }
+                /* CSS style for the form */
+                .search-form {
+                 
+                  width: 70%; /* Adjust width as needed */
+                  height: auto;
+                  margin-left: 30px; 
+                
+                  background-color: #f1f0f0;
+                  border-radius: 20px;
+                  padding-top: 1px;
+                 
+                }
+            
+                .search-bar {
+                  margin-top: 50px; /* Add margin to the top */
+                  display: flex;
+                  flex-wrap: wrap;
+                  margin-left: 20px;
+                  gap: 10px;
+                }
+            
+                label {
+                  width: 60px; /* Adjust label width as needed */
+                  flex: 0 0 50px; /* Adjust label width as needed */
+                 
+                }
+            
+                input, button {
+                  
+                  padding: 10px;
+                  border: 1px solid #d6d1d1;
+                  border-radius: 10px;
+                  font-size: 14px;
+                  height: 5px;
+                  width: calc(25% - 120px); /* Adjust input width for responsiveness */
+                  
+                }
+            
+                button {
+                  background-color: #c8d2df;
+                  color: #000000;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease;
+                 
+                
+                }
+            
+                button:hover {
+                  background-color: #0056b3;
+                }
+            
+                /* Center the "Search Flights" button */
+                button[type="submit"] {
+            
+                  margin-top: 10px;
+                  width: 15%; /* Set button width */
+                  margin-left: auto; /* Center button horizontally */
+                  margin-right: auto; /* Center button horizontally */
+                  text-align: center; /* Center text horizontally */
+                  height: 40px;
+                 
+                
+                }
+            
+                /* Media query for smaller screens */
+                @media (max-width: 768px) {
+              .search-form {
+                width: 90%; /* Adjust width for smaller screens */
+              }
+            
+              label {
+                flex: 0 0 50%; /* Make labels take full width on smaller screens */
+              }
+            
+              input,
+              button {
+                width: calc(50% - 20px); /* Adjust input width for smaller screens */
+              }
+            
+              button[type="submit"] {
+                margin-left: 0; /* Remove left margin */
+              }
+
+            }
+            </style>
+        </head>
+
+
+        <body>
+            <h1>Welcome To livingstone, the tourist city in zambia</h1>
+
+
+
+
+        </body>
+
+            <form action="/search" method="get" class="search-form">
+                <div class="search-bar">
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from" placeholder="Enter departure city">
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to" placeholder="Livingstone">
+                <label for="date">Departure Date:</label>
+                <input type="date" id="date" name="date">
+            
+                <label for="date">Return Date:</label>
+                <input type="date" id="date" name="date">
+            
+                <button type="submit">Search Flights</button>
+                </div>
+            </form>
+
+            <h3>Best Departing Flights</h3>
+
+        </html>
