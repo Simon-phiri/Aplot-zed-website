@@ -52,7 +52,7 @@
             
                 button {
                   background-color: #c8d2df;
-                  color: #000000;
+                  color: #1e1f20;
                   cursor: pointer;
                   transition: background-color 0.3s ease;
                  
@@ -95,6 +95,35 @@
                 margin-left: 0; /* Remove left margin */
               }
 
+              margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+        max-width: 200px; /* Set maximum width for table cells */
+        overflow: hidden; /* Hide overflow content */
+        white-space: nowrap; /* Prevent text wrapping */
+        text-overflow: ellipsis; /* Show ellipsis (...) for overflow text */
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        table {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th, td {
+            padding: 6px;
+            max-width: none; /* Remove maximum width on smaller screens */
+            white-space: normal; /* Allow text wrapping on smaller screens */
+        }
+
+
+           
             }
             </style>
         </head>
@@ -103,10 +132,6 @@
         <body>
             <h1>Welcome To livingstone, the tourist city in zambia</h1>
 
-
-
-
-        </body>
 
             <form action="/search" method="get" class="search-form">
                 <div class="search-bar">
@@ -124,6 +149,40 @@
                 </div>
             </form>
 
-            <h3>Best Departing Flights</h3>
+           
+              <!-- Table for departing flights -->
+             <h3>Best Departing Flights</h3>
+    <table>
+
+        <tr>
+            
+            <th>Airline Name</th>
+            <th>Departure Time</th>
+            <th>Duration</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td><img src="airline1_icon.png" alt="Airline 1 Icon"></td>
+            <td>Airline 1</td>
+            <td>08:00 AM</td>
+            <td>2 hours</td>
+            <td>$200</td>
+        </tr>
+        <tr>
+            <td><img src="airline2_icon.png" alt="Airline 2 Icon"></td>
+            <td>Airline 2</td>
+            <td>09:30 AM</td>
+            <td>1.5 hours</td>
+            <td>$180</td>
+        </tr>
+        <tr>
+            <td><img src="airline3_icon.png" alt="Airline 3 Icon"></td>
+            <td>Airline 3</td>
+            <td>11:00 AM</td>
+            <td>2.5 hours</td>
+            <td>$220</td>
+        </tr>
+    </table>
+</body>
 
         </html>
