@@ -12,33 +12,39 @@
                     color: greenyellow;
                     background-color: blue;
                 }
-                /* CSS style for the form */
-                .search-form {
-                 
-                  width: 70%; /* Adjust width as needed */
-                  height: auto;
-                  margin-left: 30px; 
-                
-                  background-color: #f1f0f0;
-                  border-radius: 20px;
-                  padding-top: 1px;
-                 
+
+                img {
+                  height: 50%;
+                  width: 50%;
+                  padding: 0%;
                 }
-            
+
+                 /* CSS style for the form */
+                .search-form {
+                  width: 80%; /* Adjust width as needed */
+                  height: auto;
+                  margin-left: 15px; 
+                  background-color: #c5c5c5;
+                  border-radius: 10px;
+                  padding-top: 0px;
+                
+                }
+
                 .search-bar {
                   margin-top: 50px; /* Add margin to the top */
                   display: flex;
                   flex-wrap: wrap;
                   margin-left: 20px;
-                  gap: 10px;
+                  gap: 15px;
+                
                 }
-            
+
                 label {
                   width: 60px; /* Adjust label width as needed */
                   flex: 0 0 50px; /* Adjust label width as needed */
-                 
+                
                 }
-            
+
                 input, button {
                   
                   padding: 10px;
@@ -49,88 +55,109 @@
                   width: calc(25% - 120px); /* Adjust input width for responsiveness */
                   
                 }
-            
-                button {
-                  background-color: #c8d2df;
-                  color: #1e1f20;
-                  cursor: pointer;
-                  transition: background-color 0.3s ease;
-                 
-                
-                }
-            
-                button:hover {
-                  background-color: #0056b3;
-                }
-            
-                /* Center the "Search Flights" button */
-                button[type="submit"] {
-            
-                  margin-top: 10px;
-                  width: 15%; /* Set button width */
-                  margin-left: auto; /* Center button horizontally */
-                  margin-right: auto; /* Center button horizontally */
-                  text-align: center; /* Center text horizontally */
-                  height: 40px;
-                 
-                
-                }
-            
-                /* Media query for smaller screens */
-                @media (max-width: 768px) {
-              .search-form {
-                width: 90%; /* Adjust width for smaller screens */
-              }
-            
-              label {
-                flex: 0 0 50%; /* Make labels take full width on smaller screens */
-              }
-            
-              input,
-              button {
-                width: calc(50% - 20px); /* Adjust input width for smaller screens */
-              }
-            
-              button[type="submit"] {
-                margin-left: 0; /* Remove left margin */
-              }
 
-              margin-top: 20px;
+          button {
+            background-color: #0062e2;
+            color: #000000;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+          }
+
+          button:hover {
+            background-color: #0056b3;
+          }
+
+          /* Center the "Search Flights" button */
+          button[type="submit"] {
+
+      
+      width: auto; /* Set button width */
+      margin-left: auto; /* Center button horizontally */
+      margin-right: auto; /* Center button horizontally */
+      text-align: center; /* Center text horizontally */
+      height: 30px;
+      font-size: 20px;
+      padding-top: 0%;
+     
+    
     }
-
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-        max-width: 200px; /* Set maximum width for table cells */
-        overflow: hidden; /* Hide overflow content */
-        white-space: nowrap; /* Prevent text wrapping */
-        text-overflow: ellipsis; /* Show ellipsis (...) for overflow text */
-    }
-
-    /* Responsive styles */
+    
+    /* Media query for smaller screens */
     @media (max-width: 768px) {
+  .search-form {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
+  label {
+    flex: 0 0 50%; /* Make labels take full width on smaller screens */
+  }
+
+  input,
+  button {
+    width: calc(50% - 20px); /* Adjust input width for smaller screens */
+  }
+
+  button[type="submit"] {
+    margin-left: 0; /* Remove left margin */
+  }
+
+  }
+  .table{
+    padding: 10px;
+  }
+
+   /* Styles for table and table container */
+   .table-container {
+            width: 80%;
+            margin: 0 auto;
+            overflow-x: auto;
+         
+        }
+
         table {
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
+            border-collapse: collapse;
         }
 
         th, td {
-            padding: 6px;
-            max-width: none; /* Remove maximum width on smaller screens */
-            white-space: normal; /* Allow text wrapping on smaller screens */
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: center;
         }
 
+        /* Specific border styles for the first and last rows */
+        tr:first-child th {
+          border-bottom: 1px solid #dddddd; /* Bottom border for the first row */
+        }
 
-           
-            }
+        tr:last-child td {
+          border-top: 1px solid #dddddd; /* Top border for the last row */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+            /* Media query for smaller screens */
+        @media (max-width: 768px) {
+          /* Adjust table styles for smaller screens */
+          table {
+            font-size: 12px; /* Decrease font size for smaller screens */
+          }
+
+          th, td {
+            padding: 6px; /* Decrease cell padding for smaller screens */
+          }
+        }
+
             </style>
         </head>
 
 
         <body>
             <h1>Welcome To livingstone, the tourist city in zambia</h1>
+
+            <img src="photos/pic000.jpeg" alt="Picture of livingstone tourists">
 
 
             <form action="/search" method="get" class="search-form">
@@ -148,41 +175,44 @@
                 <button type="submit">Search Flights</button>
                 </div>
             </form>
-
-           
-              <!-- Table for departing flights -->
-             <h3>Best Departing Flights</h3>
-    <table>
-
-        <tr>
+            <hr width="70%">
+            <h3>Best Departing Flights</h3>
             
-            <th>Airline Name</th>
-            <th>Departure Time</th>
-            <th>Duration</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <td><img src="airline1_icon.png" alt="Airline 1 Icon"></td>
-            <td>Airline 1</td>
-            <td>08:00 AM</td>
-            <td>2 hours</td>
-            <td>$200</td>
-        </tr>
-        <tr>
-            <td><img src="airline2_icon.png" alt="Airline 2 Icon"></td>
-            <td>Airline 2</td>
-            <td>09:30 AM</td>
-            <td>1.5 hours</td>
-            <td>$180</td>
-        </tr>
-        <tr>
-            <td><img src="airline3_icon.png" alt="Airline 3 Icon"></td>
-            <td>Airline 3</td>
-            <td>11:00 AM</td>
-            <td>2.5 hours</td>
-            <td>$220</td>
-        </tr>
-    </table>
-</body>
-
+    <h3>Best Departing Flights</h3>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Airline Logo</th>
+                <th>Name</th>
+                <th>Departure Time</th>
+                <th>Duration</th>
+                <th>Price(K)</th>
+            </tr>
+            <tr>
+                <td><img src="airline1_icon.png" alt="Airline 1 Icon"></td>
+                <td>zambia Airways</td>
+                <td>08:00 AM</td>
+                <td>2 hours</td>
+                <td>K200</td>
+            </tr>
+            <tr>
+                <td><img src="airline2_icon.png" alt="Airline 2 Icon"></td>
+                <td>Royal Air Charters</td>
+                <td>09:30 AM</td>
+                <td>1.5 hours</td>
+                <td>K180</td>
+            </tr>
+            <tr>
+                <td><img src="airline3_icon.png" alt="Airline 3 Icon"></td>
+                <td>Proflight Zambia</td>
+                <td>11:00 AM</td>
+                <td>2.5 hours</td>
+                <td>K220</td>
+            </tr>
+        </table>
+   <div style="background-color: rgb(158, 228, 228); height: 25%; width: 50%; border-radius: 10%; padding-left: 10%;"  >
+    <h4>Prices are currently low — ZMW 2,810 cheaper than usual for your search
+    </h4>
+   </div>
+          </body>
         </html>
