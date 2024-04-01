@@ -3,145 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
   <title>Airplane Ticket Booking</title>
   <style>
-    
+
     body {
       background-color: #d6d1d1;
     }
-
     .title-nav {
     height: 50px;
-    background-color: rgb(62, 64, 167);
     display: flex;
     justify-content: space-between;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.445);
-
+    box-shadow: 3px 3px 15px black;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1;
+     background-color: #a9acb4; /* Background color for the navigation */
+    padding: 10px; /* Add some padding around the links */
+    padding-left: 5%;
+
   }
 
-    .leftSide {
-      display: flex;
-      align-items: left;
-      margin-left: 100px;
-    }
-    .leftSide a{
-      color: rgb(240, 231, 231);
-      font-size: 30px;
-      font-weight: bold;
-      padding-left: 20px;
-    }
-    .rightSide {
-      margin-right: 40px;
-      text-align: right;
-    }
-    .rightSide a {
-      font-weight: bold;
-      color: rgb(255, 255, 255);
-      font-size: 20px;
-      padding-right: 30px;
-      text-decoration: none;
-      padding-top: 15px;
-
-    }
-    .rightSide a:hover {
-      text-decoration: underline;
-    }
-
-    .Hamburger-menu {
-      background-color: rgb(23, 7, 255);
-      border: none;
-      margin-right: 20px;
-    }
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropd {
-      display: none;
-      position: absolute;
-      left: 10px;
-      background-color: green;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
-      z-index: 1;
-      width: 300%;
-      height: 440%;
-    }
-    .dropd a {
-      color: white;
-      display: block;
-      font-size: 15px;
-      text-decoration: none;
-      padding: 12px 16px;
-      width: 100%;
-    }
-    .dropdown:hover .dropd {
-      display: block;
-    }
-    .dropd a:hover {
-      text-decoration: underline;
-      color: blue;
-      background-color: rgb(238, 238, 238);
+  .title-nav img {
+    height:70%;
+    width: 110%;
+    border-radius: 25px;
     
-    }
+  }
+  
+   
+  .title-nav .rightSide a {
+    display: inline-block; /* Make links behave as blocks */
+    padding: 10px 20px ; /* Add padding to create button-like appearance */
+    margin-right: 10px; /* Add margin between buttons */
+    text-decoration: none; /* Remove underline from links */
+    color: #000; /* Text color */
+    background-color: #ddd; /* Background color for buttons */
+    border-radius: 25px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    
+    
+  }
 
+  .title-nav .rightSide a:hover {
+    background-color: #aaa; /* Change background color on hover */
+    color: #002aff; /* Change text color on hover */
+
+    
+  }
     .logo-image {
-      width: 100%;
       max-width: 100%;
       height: auto;
-      padding-top: 3%;
-      padding: 0%;
+      
+      padding-top: 5%;
     }
+
+    /* CSS for the book button */
+.book-button {
+  background-color: #04ff00; /* Blue background color */
+  color: #ffffff; /* White text color */
+  padding: 5px 0px 30px 0px; /* Padding for the button */
+  border-radius: 3px; /* Remove button border */
+  border-radius: 15px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Cursor style on hover */
+  margin-top: 5px; /* Space between image and button */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 19px;
+  position: relative; /* Position the button */
+  overflow: hidden; /* Hide overflowing content */
+  cursor: pointer; /* Cursor style on hover */
+}
+
+
+    .book-button:hover .fas.fa-plane {
+        color: rgb(255, 255, 255); /* Color when hovering over the button */
+    }   
+
+.book-button:before {
+  content: ''; /* Create pseudo-element for reflection effect */
+  position: absolute; /* Position the pseudo-element */
+  top: -120%; /* Move the reflection above the button */
+  left: -120%; /* Move the reflection to the left of the button */
+  width: 300%; /* Set width larger for the reflection */
+  height: 300%; /* Set height larger for the reflection */
+  background: linear-gradient(to bottom right, rgb(0, 4, 245), rgba(255, 255, 255, 0)); /* Gradient background for reflection */
+  transform: rotate(45deg); /* Rotate the reflection */
+  transition: top 0.9s ease, left 0.7s ease; /* Smooth transition for animation */
+}
+
+.book-button:hover:before {
+  top: -30%; /* Move the reflection on hover */
+  left: -30%; /* Move the reflection on hover */
+.book-button:hover {
+  background-color: #38d005; /* Darker blue on hover */
+  color: rgb(19, 86, 240)
+}
+}
 
     /* CSS style for the form */
     .search-form {
-     
-      width: 70%; /* Adjust width as needed */
+      width: 80%; /* Adjust width as needed */
       height: auto;
-      margin-left: 30px; 
-    
-      background-color: #f1f0f0;
-      border-radius: 20px;
+      margin-left: 15px; 
+      background-color: #c5c5c5;
+      border-radius: 35px;
       padding-top: 0px;
+      border:1px solid rgb(0, 0, 0);
      
     }
 
     .search-bar {
-      margin-top: 50px; /* Add margin to the top */
+      margin-top: 25px; /* Add margin to the top */
       display: flex;
       flex-wrap: wrap;
       margin-left: 20px;
-      gap: 10px;
+      gap: 15px;
+     
     }
 
     label {
       width: 60px; /* Adjust label width as needed */
       flex: 0 0 50px; /* Adjust label width as needed */
+      
      
     }
 
     input, button {
       
       padding: 10px;
-      border: 1px solid #d6d1d1;
+      border: 1px solid #000000;
       border-radius: 10px;
       font-size: 14px;
       height: 5px;
       width: calc(25% - 120px); /* Adjust input width for responsiveness */
+      margin-top: 1%;
       
     }
 
     button {
-      background-color: #c8d2df;
-      color: #000000;
+      background-color: #8b8b92;
+      color: #161616;
       cursor: pointer;
       transition: background-color 0.3s ease;
-     
-    
+  
+
     }
 
     button:hover {
@@ -151,16 +160,19 @@
     /* Center the "Search Flights" button */
     button[type="submit"] {
 
-      margin-top: 10px;
-      width: 15%; /* Set button width */
+      
+      width: auto; /* Set button width */
       margin-left: auto; /* Center button horizontally */
       margin-right: auto; /* Center button horizontally */
       text-align: center; /* Center text horizontally */
-      height: 40px;
+      height: 30px;
+      font-size: 20px;
+      padding-top: 0%;
+      margin-bottom: 1%;
      
     
     }
-
+    
     /* Media query for smaller screens */
     @media (max-width: 768px) {
   .search-form {
@@ -180,8 +192,6 @@
     margin-left: 0; /* Remove left margin */
   }
 }
-
-
     /* CSS styles for the card container and individual cards */
     .card-container {
       display: flex;
@@ -197,7 +207,7 @@
       display: flex;
       margin-bottom: 20px;
       padding: 10px;
-      border: 1px solid #a97fff;
+      border: 1px solid #0044ff;
       border-radius: 25px;
       flex-direction: column;
       align-items: center; /* Align card content to the top */
@@ -208,6 +218,7 @@
     }
     .card:hover {
       transform: translateY(-20px); /* Move the card up by 10px on hover */
+   
     }
 
     .card img {
@@ -279,6 +290,14 @@
       flex: 1;
     }
 
+    .card-content i {
+    margin-right: 5px 40px 7px 5px; /* Add space between the icon and the text */
+    color: #0025f8; /* Set the color of the icon to white */
+}
+
+
+
+
     .map {
       flex: 1;
       margin-right: auto;
@@ -316,38 +335,38 @@
     }
 }     
 
+footer {
+  background-color: #000000;
+  color: white;
+  height: 25px;
+  text-align: center;
+}
   </style>
 </head>
 <body>
- 
- <nav class="title-nav">
-
-  <div class="dropdown">
-    <button class="Hamburger-menu" title="Menu">
-      <img src="photos/TICKET.jpg" alt="Airline Logo" width="40px">
-    </button>
-      <div class="dropd">
-          <a href="flights.html">Check Flights</a>
-          <a href="#" title="Go To Contact Page">Feedback</a>
-          <a href="UserDetails.html">User Details</a>
-          <a href="About Us.html">Contact Us</a>     
-      </div>
-    </div>  
-    
-  <div class="rightSide" >
-      <a href="Distinations.html">Distinations</a>
-      <a href="news.html">News</a>
-      <a href="about page.html">About Us</a>
-  </div>
+  <nav class="title-nav">  
+    <a href="https://www.google.com"><img src="photos/google.jpg" alt=""></a>
+    <div class="rightSide" >
+      
+        <a href="hotel.html"><i class="fas fa-hotel"></i> Hotels</a>
+        <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
+        <a href="about page.html"><i class="fas fa-info-circle"></i> About Us</a>
+    </div>
 </nav>
 
 <!-- Big display image -->
 <div class="logo-image">
-  <img src="photos/pic79.jpeg" alt=" Display Image">
+  <hr>
+  <img src="photos/pic79.jpeg" alt="Logo Display Image">
+  <button class="book-button">
+    <i class="fas fa-plane-departure"></i> Book Now
+</button>
+
 </div>
+<br>
+<br>
 
-
-
+<div class="body">
 <form action="/search" method="get" class="search-form">
     <div class="search-bar">
       <label for="from">From:</label>
@@ -360,12 +379,13 @@
       <label for="date">Return Date:</label>
       <input type="date" id="date" name="date">
 
-      <button type="submit">Search Flights</button>
+      <button type="submit"><i class="fas fa-search"></i>Search</button>
     </div>
   </form>
 
+
   
- <section class="featured-destinations">
+  <section class="featured-destinations">
    <br>
     <h1>Explore Popular Destinations</h1>
      <!-- Card for Livingstone -->
@@ -373,22 +393,22 @@
   
         <img src="photos/pic000.jpeg" alt="Livingstone">
         <div class="card-content">
-          <h4>Livingstone</h4>
-          <p>Feb 29 - Mar 15</p>
-          <p>Non stop 2hrs</p>
-        </div>
-        <h5 class="amount">ZMW 3,500</h5>
+          <h4>Livingstone<i class="fas fa-city"></i> </h4>
+          <p>Feb 29 - Mar 15<i class="far fa-calendar-alt"></i> </p>
+          <p>1 stop 10hrs 40min<i class="fas fa-plane-departure"></i> </p>
+      </div>
+      <h5 class="amount"><i class="fas fa-coins"></i> ZMW 3,500</h5>
         </a>
       
-      <!-- Card for Victoria Falls -->
-      <a href="detailsvictoriafalls.html" class="card">
-        <img src="photos/pic111.jpeg" alt="Victoria Falls">
+      <!-- Card for Zambia -->
+      <a href="detailszambia.html" class="card">
+        <img src="photos/zambia.png" alt="Victoria Falls">
         <div class="card-content">
-          <h4>Victoria Falls</h4>
-          <p>Jul 01 - jul 25</p>
-          <p>Non stop 4hrs </p>    
-        </div>
-          <h5 class="amount">ZMW 3,500</h5>
+          <h4>Zambia<i class="fas fa-map-marked-alt"></i> </h4>
+          <p>Jul 01 - Jul 25<i class="far fa-calendar-alt"></i> </p>
+          <p>1 stop 10hrs 40min<i class="fas fa-plane-departure"></i> </p>
+      </div>
+      <h5 class="amount"><i class="fas fa-coins"></i> ZMW 3,500</h5>
           </a>
       
     
@@ -396,11 +416,11 @@
       <a href="detailseastern.html" class="card">
         <img src="photos/pic25.jpeg" alt="Lower Zambezi National Park">
         <div class="card-content">
-          <h4>Eastern Province</h4>
-          <p>May 05 - Jun 02</p>
-          <p>1 stop 10hrs 40min </p>
-        </div>  
-          <h5 class="amount">ZMW 18,000</h5>
+          <h4> Eastern Province<i class="fas fa-map"></i></h4>
+          <p>May 05 - Jun 02<i class="far fa-calendar-alt"></i> </p>
+          <p>1 stop 10hrs 40min<i class="fas fa-plane-departure"></i> </p>
+      </div>
+      <h5 class="amount"><i class="fas fa-coins"></i> ZMW 18,000</h5>
      
     </a>
 
@@ -416,6 +436,7 @@
   <footer>
     <p>&copy; Yango APLOT 2024</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
