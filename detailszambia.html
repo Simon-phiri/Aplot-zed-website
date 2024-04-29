@@ -1,11 +1,12 @@
-<DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Explorezambia</title>
-            
-            <style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Explore Zambia</title>
+    <style>
         /* General styles */
         body {
             font-family: Arial, sans-serif;
@@ -21,9 +22,9 @@
         }
 
         img {
-            margin-left: 2%;
-            left: 150%;
-            transform: translate(-10%, -50);
+            margin-left: 0%;
+            left: 50%;
+            transform: translate(-60%, -50);
         }
 
         /* Styles for headings */
@@ -83,7 +84,6 @@
             width: 80%;
             margin: 0 auto;
             overflow-x: auto;
-         
         }
 
         table {
@@ -91,99 +91,196 @@
             border-collapse: collapse;
         }
 
-        th, td {
-            border: 1px solid #dddddd;
-            padding: 8px;
+        th {
+            padding: 8px 8px 8px 0px;
             text-align: center;
-        }
-
-        /* Specific border styles for the first and last rows */
-        tr:first-child th {
-          border-bottom: 1px solid #dddddd; /* Bottom border for the first row */
-        }
-
-        tr:last-child td {
-          border-top: 1px solid #dddddd; /* Top border for the last row */
+            height: 55px;
         }
 
         tr:nth-child(even) {
-            background-color: #f9f9f9;
-        
-            /* Media query for smaller screens */
-        @media (max-width: 768px) {
-          /* Adjust table styles for smaller screens */
-          table {
-            font-size: 12px; /* Decrease font size for smaller screens */
-          }
-
-          th, td {
-            padding: 6px; /* Decrease cell padding for smaller screens */
-          }
+            background-color: #f2f2f2;
         }
-        
-}
-            </style>
-        </head>
+
+        /* Specific border styles for the first and last rows */
+        :first-child th {
+            border-bottom: 3px solid #00d1e0; /* Bottom border for the first row */
+            background-color: #514e4e;
+            height: 75px;
+            color: aqua;
+            font-size: large;
+            padding-right: 0px;
+        }
+
+        :last-child td {
+            border-top: 3px solid #00ffff; /* Top border for the last row */
+        }
+
+        /* CSS for flight details */
+        .flight-details {
+            display: none; /* Hide the flight details by default */
+            font-family: Arial, sans-serif; /* Change font family */
+            color: #ff0000; /* Change font color */
+            padding: 10px; /* Add padding */
+        }
 
 
-        <body>
-            <h1>Welcome to Zambia, the home to the might victoria falls and every Tourist Destination</h1>
+        /* CSS for toggle icon */
+        .toggle-details.clicked {
+            color: red; /* Change color upon clicking */
+        }
 
-            <img src="photos/PIC8.jpg" alt="Picture of zambia flag">
+        .toggle-details.clicked:hover {
+            color: blue; /* Change hover color upon clicking */
+        }
 
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            /* Adjust table styles for smaller screens */
+            table {
+                font-size: 12px; /* Decrease font size for smaller screens */
+            }
+             td {
+                padding: 6px; /* Decrease cell padding for smaller screens */
+            }
+            th {
+               padding:  6px;
 
-            <form action="/search" method="get" class="search-form">
-                <div class="search-bar">
-                <label for="from">From:</label>
-                <input type="text" id="from" name="from" placeholder="Enter departure city">
-                <label for="to">To:</label>
-                <input type="text" id="to" name="to" placeholder="Zambia">
-                <label for="date">Departure Date:</label>
-                <input type="date" id="date" name="date">
+            }
+
+            /* CSS style for expanding each row */
+            .flight-row.expanded .flight-details {
+                display: table-row; /* Show the details row when the flight row is expanded */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Zambia, the Home to the Might Victoria Falls</h1>
+    
+    <div class="image-container">
+        <img src="photos/PIC8.jpg" alt="Picture of Livingstone tourists">
+    </div>
+
+    <form action="/search" method="get" class="search-form">
+        <div class="search-bar">
+            <label for="from">From:</label>
+            <input type="text" id="from" name="from" placeholder="Enter departure city">
+            <label for="to">To:</label>
+            <input type="text" id="to" name="to" placeholder="Zambia">
+            <label for="date">Departure Date:</label>
+            <input type="date" id="date" name="date">
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return_date">
+            <button type="submit"><i class="fas fa-search"></i> Search Flights</button>
+        </div>
+    </form>
+
+    <h3 style="padding-left: 10%;">Best Departing Flights</h3>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Airline Logo</th>
+                <th>Name</th>
+                <th>Departure Time</th>
+                <th>Duration</th>
+                <th>Price(K)</th>
+            </tr>
+            <tr class="flight-row">
+                <td><img src="photos/icon2.jpg" style="height: 65px; width: 95px; margin-left: -4px;" alt="Airline 1 Icon"></td>
+                <td>Fry Emirates</td>
+                <td>08:00 AM</td>
+                <td>2 hours</td>
+                <td>
+                    K1500 
+                    <i class="fas fa-arrow-alt-circle-down toggle-details" style="padding: 8%; color: rgb(18, 1, 255); cursor: pointer;"></i>
+                </td>
+            </tr>
+            <tr class="flight-details">
+                <td colspan="5">
+                    <!-- Flight details -->
+                    <div class="details-content">
+                        <h1>Travel Agency</h1>
+                        <ul>
+                            <h2 style="padding-left: 5%; color: black; font-size: 24px;"> Departure Airport:</h2> <h4 style="color: green; padding-left: 5%;"> ZAF Airport</h4>
+                            <h3 style="padding-left: 35%; color: rgb(0, 74, 12);">Departure: 09:00 AM</h3>
+                            <li><strong>Plane Capacity:</strong> 350 passengers</li>
+                            <li><strong>Hotel Available:</strong> Livingstone City Hotel</li>
+                    
+                <button type="submit" style="margin-left: 80%; color: #0062e2; padding: 10px;">Select Flight</button>
+                     </div>
+                </td>
+            </tr>
             
-                <label for="date">Return Date:</label>
-                <input type="date" id="date" name="date">
-            
-                <button type="submit">Search Flights</button>
-                </div>
-            </form>
+            <tr class="flight-row">
+                <td><img src="photos/icon4.jpg" style="height: auto; width: 85px; margin-left: -4 px;" alt="Airline 1 Icon"></td>
+                <td>Zambia AirWays</td>
+                <td>09:30 AM</td>
+                <td>5 hours</td>
+                <td>K180 <i class="fas fa-arrow-alt-circle-down toggle-details" style="padding: 8%; color: rgb(18, 1, 255); cursor: pointer;"></i></td>
+            </tr>
+            <tr class="flight-details">
+                <td colspan="5">
+                    <!-- Flight details -->
+                    <div class="details-content">
+                        <h1>Zambia Airways</h1>
+                        <ul>
+                            <h2 style="padding-left: 5%; color: black; font-size: 24px;"> Departure Airport:</h2> <h4 style="color: green; padding-left: 5%;"> Kenneth Kaunda Airport</h4>
+                            <h3 style="padding-left: 35%; color: rgb(0, 74, 12);">Departure: 14:00 PM</h3>
+                            <li><strong>Plane Capacity:</strong> 350 passengers</li>
+                            <li><strong>Hotel Available:</strong> Tigwilizane Hotel</li>
+                    
+                <button type="submit" style="margin-left: 80%; color: #0062e2; padding: 10px;">Select Flight</button>
+                     </div>
+                </td>
+            </tr>
+            <tr class="flight-row">
+                <td><img src="photos/SAim.jpg" style="height: auto; width: 85px;" alt="Airline 3 Icon"></td>
+                <td>South Africa AirWays</td>
+                <td>11:00 AM</td>
+                <td>2.5 hours</td>
+                <td>K220 <i class="fas fa-arrow-alt-circle-down toggle-details" style="padding: 8%; color: rgb(18, 1, 255); cursor: pointer;"></i></td>
+            </tr>
+            <tr class="flight-details">
+                <td colspan="5">
+                    <!-- Flight details -->
+                    <div class="details-content">
+                        <h1>South Africa AirWays</h1>
+                        <ul>
+                            <h2 style="padding-left: 5%; color: black; font-size: 24px;"> Departure Airport:</h2> <h4 style="color: green; padding-left: 5%;"> Cape Town Airport</h4>
+                            <h3 style="padding-left: 35%; color: rgb(0, 74, 12);">Departure: 1:00 Pm</h3>
+                            <li><strong>Plane Capacity:</strong> 400 passengers</li>
+                            <li><strong>Hotel Available:</strong> Livingstone City Hotel</li>
+                    
+                <button type="submit" style="margin-left: 80%; color: #0062e2; padding: 10px;">Select Flight</button>
+                     </div>
+                </td>
+            </tr>
+        </table>
+        <div style="background-color: rgb(158, 228, 228); height: 25%; width: 50%; border-radius: 10%; padding-left: 10%;">
+            <h4>Prices are currently low — ZMW 2,810 cheaper than usual for your search</h4>
+        </div>
+    </div>
 
-            <h3>Best Departing Flights</h3>
-            <div class="table-container">
-              <table>
-                  <tr>
-                      <th>Airline Logo</th>
-                      <th>Name</th>
-                      <th>Departure Time</th>
-                      <th>Duration</th>
-                      <th>Price(K)</th>
-                  </tr>
-                  <tr>
-                      <td><img src="airline1_icon.png" alt="Airline 1 Icon"></td>
-                      <td>Fry with Us</td>
-                      <td>08:00 AM</td>
-                      <td>2 hours</td>
-                      <td>K200</td>
-                  </tr>
-                  <tr>
-                      <td><img src="airline2_icon.png" alt="Airline 2 Icon"></td>
-                      <td>Fry High</td>
-                      <td>09:30 AM</td>
-                      <td>5 hours</td>
-                      <td>K180</td>
-                  </tr>
-                  <tr>
-                      <td><img src="airline3_icon.png" alt="Airline 3 Icon"></td>
-                      <td>Proflight zambia</td>
-                      <td>11:00 AM</td>
-                      <td>2.5 hours</td>
-                      <td>K220</td>
-                  </tr>
-              </table>
-         <div style="background-color: rgb(158, 228, 228); height: 25%; width: 50%; border-radius: 10%; padding-left: 10%;"  >
-          <h4>Prices are currently low — ZMW 2,810 cheaper than usual for your search
-          </h4>
-         </div>
-          
-          </body>
-        </html>
+    <script>
+     
+    $(document).ready(function() {
+        // Click event handler for toggle icon
+        $('.toggle-details').click(function() {
+            console.log('Toggle icon clicked'); // Log a message to the console
+            // Find the closest parent row and the next row
+            var detailsRow = $(this).closest('.flight-row').next('.flight-details');
+            
+            // Toggle visibility of the details row
+            if (detailsRow.is(':visible')) {
+                detailsRow.hide();
+            } else {
+                detailsRow.show();
+            }
+
+            console.log('Details row toggled:', detailsRow.is(':visible')); // Log details row visibility
+        });
+    });
+
+    </script>
+</body>
+</html>
