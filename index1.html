@@ -4,105 +4,191 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
   <title>Airplane Ticket Booking</title>
   <style>
 
     body {
       background-color: #d6d1d1;
     }
-    .title-nav {
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 3px 3px 15px black;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
-     background-color: #a9acb4; /* Background color for the navigation */
-    padding: 10px; /* Add some padding around the links */
-    padding-left: 5%;
-
-  }
-
-  .title-nav img {
-    height:70%;
-    width: 110%;
-    border-radius: 25px;
-    
-  }
   
+    nav {
+  background: #8e8e92;
+  height: 100px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  position: fixed; /* Make the navbar fixed */
+  top: 0; /* Align the navbar to the top */
+  z-index: 999; /* Ensure the navbar appears above other content */
+}
+
+.logo-link{
+  text-decoration: none;
+
+}
+
+.logo-link:hover {
+    /* Override any unwanted hover styles here */
+    color: inherit; /* Reset the color to inherit */
+    background-color: transparent; /* Reset the background color to transparent */
+}
+
+label.logo {
+  color: rgb(255, 255, 255);
+  font-size: 45px; /* Adjusted font size */
+  line-height: 100px;
+  padding-left: 5%;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 255, 234, 0.978); /* Added text shadow for depth */
+  background: linear-gradient(45deg, #ff0099, rgb(255, 0, 0)); /* Added gradient background */
+  -webkit-background-clip: text; /* Clip text to background */
+  -webkit-text-fill-color: transparent; /* Make text transparent to show background */
+  opacity: 0; /* Initially hide the logo */
+  animation: slideFromLeft 5s ease-in-out forwards; /* Animation to slide from left to right */
+  
+}
+
+
+@keyframes slideFromLeft {
+  6% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(6);
+    opacity: 1;
+  }
+}
+
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+  font-family: sans-serif;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 100px;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  color: white;
+  padding: 7px 7px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+a.active,
+a:hover {
+  background: rgb(182, 182, 188);
+  transition: .9s;
+  color: #0044ff;
+}
+.login {
+  background-color: green;
+  height: 45px;
+  text-transform: lowercase;
+  border-radius: 0%;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 12px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.login:hover{
+  background-color: red;
+  
+}
+
+.checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 20px; /* Adjusted margin */
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width: 858px) {
+  label.logo {
+    font-size: 30px;
+    padding: 5%; /* Adjusted padding */
+  }
+  nav ul li a {
+    font-size: 12px;
+    padding: 10px; /* Adjusted padding */
    
-  .title-nav .rightSide a {
-    display: inline-block; /* Make links behave as blocks */
-    padding: 10px 20px ; /* Add padding to create button-like appearance */
-    margin-right: 10px; /* Add margin between buttons */
-    text-decoration: none; /* Remove underline from links */
-    color: #000; /* Text color */
-    background-color: #ddd; /* Background color for buttons */
-    border-radius: 25px; /* Add rounded corners */
-    transition: background-color 0.3s ease; /* Smooth hover transition */
-    
-    
   }
-
-  .title-nav .rightSide a:hover {
-    background-color: #aaa; /* Change background color on hover */
-    color: #002aff; /* Change text color on hover */
-
-    
+  .checkbtn {
+    display: block;
   }
+  nav ul {
+    position: fixed;
+    width: 40%;
+    height: 70vh;
+    background: #000000;
+    top: -10px;
+    left: -100%;
+    text-align: left;
+    transition: all .5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0; /* Adjusted margin */
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 20px; /* Adjusted font size */
+  }
+  a:hover,
+  a.active {
+    background: none;
+    color: rgb(0, 8, 255);
+  }
+  #check:checked~ul {
+    left: 0;
+  }
+}
+
+  
     .logo-image {
-      max-width: 100%;
+      max-width: 60%;
       height: auto;
       
-      padding-top: 5%;
+      padding-top: 7%;
     }
 
     /* CSS for the book button */
-.book-button {
-  background-color: #04ff00; /* Blue background color */
-  color: #ffffff; /* White text color */
-  padding: 5px 0px 30px 0px; /* Padding for the button */
-  border-radius: 3px; /* Remove button border */
-  border-radius: 15px; /* Rounded corners */
-  font-size: 16px; /* Font size */
-  cursor: pointer; /* Cursor style on hover */
-  margin-top: 5px; /* Space between image and button */
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 19px;
-  position: relative; /* Position the button */
-  overflow: hidden; /* Hide overflowing content */
-  cursor: pointer; /* Cursor style on hover */
-}
-
-
-    .book-button:hover .fas.fa-plane {
-        color: rgb(255, 255, 255); /* Color when hovering over the button */
-    }   
-
-.book-button:before {
-  content: ''; /* Create pseudo-element for reflection effect */
-  position: absolute; /* Position the pseudo-element */
-  top: -120%; /* Move the reflection above the button */
-  left: -120%; /* Move the reflection to the left of the button */
-  width: 300%; /* Set width larger for the reflection */
-  height: 300%; /* Set height larger for the reflection */
-  background: linear-gradient(to bottom right, rgb(0, 4, 245), rgba(255, 255, 255, 0)); /* Gradient background for reflection */
-  transform: rotate(45deg); /* Rotate the reflection */
-  transition: top 0.9s ease, left 0.7s ease; /* Smooth transition for animation */
-}
-
-.book-button:hover:before {
-  top: -30%; /* Move the reflection on hover */
-  left: -30%; /* Move the reflection on hover */
-.book-button:hover {
-  background-color: #38d005; /* Darker blue on hover */
-  color: rgb(19, 86, 240)
-}
-}
+    .logo-image {
+    position: relative;
+  }
+  .book-button {
+    position: fixed;
+    bottom: -100px; /* Initially hide the button below the viewport */
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: bottom 0.3s ease;
+  }
+  .book-button.show {
+    bottom: 5px; /* Display the button at the bottom of the viewport */
+  }
 
     /* CSS style for the form */
     .search-form {
@@ -112,7 +198,7 @@
       background-color: #c5c5c5;
       border-radius: 35px;
       padding-top: 0px;
-      border:1px solid rgb(0, 0, 0);
+      border:2px solid rgb(0, 0, 0);
      
     }
 
@@ -274,6 +360,7 @@
     /* Align the amount to bottom right */
     .amount {
       margin-top: auto; /* Align to the bottom */
+      padding-right:  30px;
       font-size: 16px; /* Adjust font size if needed */
       align-self: flex-end; /* Align to the right */
       color: #000000;
@@ -291,9 +378,11 @@
     }
 
     .card-content i {
-    margin-right: 5px 40px 7px 5px; /* Add space between the icon and the text */
+    margin: 2px 4px 5px 10px; /* Add space between the icon and the text */
     color: #0025f8; /* Set the color of the icon to white */
-}
+  }
+
+  
 
 
 
@@ -308,16 +397,16 @@
     /* Positioning the map for big screens */
     @media (min-width: 768px) {
   .map {
-    width: 60%; /* Adjust width as needed */
+    width: 50%; /* Adjust width as needed */
     height: 450px; /* Set initial height */
     overflow: hidden; /* Ensure map doesn't overflow container */
     margin: 0 auto; /* Center the map horizontally */
     margin-top: -475px; /* Add some space between the map and other elements */
-    margin-left: 590px;
+    margin-left: 510px;
   }
 }
     /* Positioning the map for smaller screens */
-    @media (max-width: 767px) {
+    @media (max-width: 100px) {
       .map {
         width: 95%; /* Take up full width of its parent container */
         height: 450px; /* Set initial height */
@@ -344,20 +433,33 @@ footer {
   </style>
 </head>
 <body>
-  <nav class="title-nav">  
-    <a href="https://www.google.com"><img src="photos/google.jpg" alt=""></a>
-    <div class="rightSide" >
-      
-        <a href="hotel.html"><i class="fas fa-hotel"></i> Hotels</a>
-        <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
-        <a href="about page.html"><i class="fas fa-info-circle"></i> About Us</a>
-    </div>
-</nav>
 
+  <nav>
+    <div class="logo">
+        <a href="home.html" class="logo-link">
+         <label class="logo">APLOT</label>
+        </a>  
+    </di>
+
+    <input type="checkbox" id="check">
+
+    <ul>
+      <li><a href="#" class="active"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="#"><i class="fas fa-hotel"></i>Hotels</li>
+      <li><a href="#"><i class="fas fa-text"></i>Feed Back</a></li>
+      <li><a href="#">About Us</a></li>
+      <li> <a class="login"href="login-join.html">Login/Join</a>
+
+    </ul>
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i> <!-- Font Awesome icon for hamburger menu -->
+    </label>
+  </nav>
+  
 <!-- Big display image -->
 <div class="logo-image">
   <hr>
-  <img src="photos/pic79.jpeg" alt="Logo Display Image">
+  <img src="photos/pic045.jpeg" alt="Logo Display Image">
   <button class="book-button">
     <i class="fas fa-plane-departure"></i> Book Now
 </button>
@@ -416,7 +518,7 @@ footer {
       <a href="detailseastern.html" class="card">
         <img src="photos/pic25.jpeg" alt="Lower Zambezi National Park">
         <div class="card-content">
-          <h4> Eastern Province<i class="fas fa-map"></i></h4>
+          <h4> Eastern <i class="fas fa-map"></i></h4>
           <p>May 05 - Jun 02<i class="far fa-calendar-alt"></i> </p>
           <p>1 stop 10hrs 40min<i class="fas fa-plane-departure"></i> </p>
       </div>
@@ -437,6 +539,25 @@ footer {
     <p>&copy; Yango APLOT 2024</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    window.addEventListener('scroll', function() {
+  var bookButton = document.getElementById('bookButton');
+  var scrollPosition = window.scrollY;
+  
+  // Debugging: Log scroll position to console
+  console.log('Scroll Position:', scrollPosition);
+
+  // Determine when to show/hide the button
+  if (scrollPosition > 100) { // Debugging: Log when button is shown
+    console.log('Show Button');
+    bookButton.classList.add('show');
+  } else {
+    console.log('Hide Button'); // Debugging: Log when button is hidden
+    bookButton.classList.remove('show');
+  }
+});
+
+    </script>
+    
 </body>
 </html>
