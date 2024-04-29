@@ -1,125 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        #registration-form {
-            background-color: #f0f8ff; /* Light blue */
-            padding: 20px;
-            border-radius: 60px;
-            width: 100%;
-            max-width: 400px;
-        }
-	
-	 #registration-form h1 {
-            text-align: center;
-            font-size: 35px;
-            font-weight: bold;
-            color: black;
-            margin-bottom: 20px;
-	    animation-name: slideInFromLeft;
-            animation-duration: 1s;
-        }
-
-	 @keyframes slideInFromLeft {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="registration.js"></script>
+        <title>Registration Form</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
             }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-
-        #registration-form label {
-            display: block;
-            margin-bottom: 10px;
-        }
-	}
-        #registration-form input[type="text"],
-        #registration-form input[type="email"],
-        #registration-form input[type="password"] {
-            width: 95%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        #registration-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff; /* Blue */
-            color: red;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #registration-form button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-        }
-
-        #message {
-            margin-top: 10px;
-            color: #007bff; /* Blue */
-        }
-    </style>
-
-</head>
-<body>
-   
-    <form id="registration-form">
-	 <h1>Registration</h1>
-        <label for="first-name">First Name:</label>
-        <input type="text" id="first-name" name="first_name" required><br>
-        <label for="last-name">Last Name:</label>
-        <input type="text" id="last-name" name="last_name" required><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-	<label for="nationality">Nationality:</label>
-	<br>
-        <select id="nationality" name="nationality" required>
-            <option value="">Select Nationality</option>
-            <option value="Zambian">Zambian</option> 
-            <option value="Foreign national residing in Zambia">Foreign national residing in Zambia</option>
-            <option value="Other African countries">Other African countries</option>
-            <option value="Other World countries">Other World countries</option>
-        </select><br><br>
-
-	 <label for="date-of-birth">Date of Birth:</label>
-        <input type="date" id="date-of-birth" name="date_of_birth" required>
-        <br><br>
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Prefer Not to say">Prefer Not to Say</option>
-        </select>
-	<br><br>
-
-	<label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" placeholder="+260" required>
-        
-        <button type="submit">Register</button>
-    </form>
-    <div id="message"></div>
     
-</body>
-</html>
+            #registration-form {
+                width: 80%; /* Set width to 80% of the viewport width */
+                max-width: 400px; /* Set maximum width to 400px */
+                margin: 50px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #269a12;
+                text-decoration: underline;
+            }
+    
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #000000;
+                font-weight: bold;
+                font-size: 17px;
+            }
+    
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            select,
+            input[type="date"],
+            input[type="tel"] {
+                width: 100%; /* Set width to 100% */
+                padding: 8px;
+                margin-bottom: 15px;
+                border: 1px solid #cccccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+                font-size: 14px;
+            }
+    
+            select {
+                width: 100%;
+            }
+    
+            button[type="submit"] {
+                width: 20%;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-left: 40%;
+                margin-top: -4px;
+            }
+    
+            button[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+            .popup img {
+                height: 20%;
+                width: 20%;
+                margin-top: -40px;
+                border-radius: 65%;
+                box-shadow: 0 2px 5px rgb(0, 0, 0, 0.2);
+            }
+            .popup {
+    width: 400px;
+    background-color: #219124;
+    border-radius: 6px;
+    position: fixed; /* Change to fixed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Change scale to 0 */
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #ffffff;
+    visibility: visible;
+    opacity: 0; /* Add opacity */
+    transition: transform 0.4s, opacity 0.4s; /* Add opacity transition */
+}
+
+.open-popup {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1; /* Add opacity */
+}
+            .popup h2 {
+                font-size: 38px;
+                font-weight: 500;
+                margin: 30px 0 10px
+            }
+
+            .popup button {
+                width: 100%;
+                margin-top: 10px;
+                padding: 10px 0;
+                background: #6fd649;
+                color: #fff;
+                border: 0;
+                outline: none;
+                font-size: 18px;
+                border-radius: 4px;
+                cursor: pointer;
+                box-shadow: 0 5px 5px rgba(0, 0, 0, 0,2);
+            }
+        </style>
+    </head>
+    <body>
+    
+        <form id="registration-form">
+            
+            <h1>Register Below</h1>
+        
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" placeholder="Enter your name" name="first_name" pattern="[a-zA-Z]{2,}" required>
+            <span class="error" id="first-name-error" style="color: red; display: none;">Please enter letters only.</span>
+        
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" placeholder="Enter your surname" name="last_name" pattern="[a-zA-Z]{2,}" required>
+            <span class="error" id="last-name-error" style="color: red; display: none;">Please enter letters only.</span>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" name="email" required>
+        
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter a 6 character password" name="password" pattern=".{6,}" required>
+            <span class="error" id="last-name-error" style="color: red; display: none;">Please enter a 6 or more character password.</span>
+        
+            <label for="nationality">Nationality:</label>
+            <select id="nationality" name="nationality" required>
+                <option value="">Select Nationality</option>
+                <option value="Zambian">Zambian</option>
+                <option value="Foreign national residing in Zambia">Foreign national residing in Zambia</option>
+                <option value="Other African countries">Other African countries</option>
+                <option value="Other World countries">Other World countries</option>
+            </select>
+        
+            <label for="date-of-birth">Date of Birth:</label>
+            <input type="date" id="date-of-birth" name="date_of_birth" required>
+        
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Prefer Not to say">Prefer Not to Say</option>
+            </select>
+        
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" placeholder="+260" name="phone" pattern="[0-9]{10}" required>
+            <button type="submit" id="submit-btn">Submit</button>
+
+                    <div class="popup" id="popup">
+                        <img src="photos/tick.png" alt="nike image"> 
+                        <h2>Thank you!</h2>
+                        <p>Your details has been successfully submitted. Thanks!</p>
+                      </div>
+                </div>
+            </div>
+        </form>
+    <script>
+        function openPopup(event) {
+            event.preventDefault(); // Prevent the default form submission
+          
+            // Check if all required fields have a value
+            let isFormValid = true;
+            $('#registration-form input[required], #registration-form select[required]').each(function() {
+              if ($.trim($(this).val()).length == 0) {
+                isFormValid = false;
+                return false; // Stop the .each() loop
+              }
+            });
+          
+            // If all required fields have a value, submit the form data using AJAX
+            if (isFormValid) {
+              $.ajax({
+                type: 'POST',
+                url: 'submit.php',
+                data: $('#registration-form').serialize(),
+                success: function(response) {
+                  console.log(response); // Log the response from the server
+                  popup.addClass("open-popup");
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                  console.log(textStatus, errorThrown);
+                }
+              });
+            } else {
+              alert('Please fill in all required fields before submitting the form.');
+            }
+          }
+        </script>
+
+
+    </body>
+    </html>
+    
