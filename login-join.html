@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>APLOT login</title>
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -5;
+            opacity: 0.7;
+        }
+
+        .background-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+        
+        .input-icon input::placeholder {
+            padding-left: 75px;
+                
+        }
+
+        .input-icon {
+        position: relative;
+        }
+
+        .input-icon i {
+            position: absolute;
+            left: 20px;
+            top: 35%;
+            transform: translateY(-50%);
+            color: #ee1313;
+            font-size: 1.2em;
+        }
+
+        .input-icon input {
+            padding-left: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .background-image img {
+                opacity: 0.5;
+            }
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 1;
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+            margin: 0 auto; /* Centering the container */
+            max-width: 400px; /* Limiting the maximum width */
+        }
+
+        form {
+            background-color: rgba(96, 146, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            margin-top: 15px;
+        }
+
+        input, button {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: calc(100% - 20px); /* Adjust width for padding */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+
+        button {
+            background-color: #0056b3;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003366;
+        }
+
+        .social-media-links {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .social-media-links a {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+    <body>
+    <div class="background-image"> <img src="photos/p1.jpg" alt=""></div>
+    <div class="login-container">
+              
+        
+
+        <form action="/login" method="post">
+
+            <h2>Login or sign up to get a ticket</h2>
+            <label for="username">Username:</label>
+            <div class="input-icon">
+              <i class="fas fa-user"></i>
+              <input type="text" id="username" name="username" placeholder="Enter your username">
+            </div>
+            
+            <br>
+            <br>
+            <label for="password">Password:</label>
+            <div class="input-icon">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+            <br>
+            <br>
+            <a href="home.html"><button type="submit">Login</button></a>
+
+            <br>
+            <br>
+
+            <a href="Fpassword.html">Forgot Password</a>
+       
+            <a href="registrationForm.html">Dont have an Account? create</a>
+                
+            <h4> Or sign up using</h4>
+             
+            <div class="social-media-links">
+                <a href="https://www.facebook.com"> <img src="photos/fb logo.png" alt="fb icon" height="70px" width="70px"></a>
+                <a href="https://www.instagram.com"> <img src="photos/Insta logo.png" alt="Insta icon" height="70px" width="70px"></a>
+                <a href="https://www.twitter.com"> <img src="photos/twitter logo.png" alt="twit icon" height="70px" width="70px"></a>
+                </div>
+            
+                
+
+            <footer style="text-align: center;">
+                <p>&copy; 2024 APLOT</p>
+              </footer>
+        
+          </form>
+
+   
+           
+           
+        </div>
+
+      
+        </form>
+        <script src="script.js"></script>
+        
+</body>
+</html> 
