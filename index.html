@@ -422,27 +422,30 @@ a:hover {
   }
 
   .checkbtn {
-    display: block; /* Display hamburger menu button */
     position: absolute; /* Position button for mobile */
     top: 50%; /* Align button vertically */
-    right: 20px; /* Adjust right position */
+    margin-left: 0px; /* Adjust right position */
     transform: translateY(-50%); /* Center button vertically */
   }
 
   nav ul {
     position: fixed; /* Make navigation fixed */
     width: 100%; /* Take full width */
-    background: #8e8e92; /* Set background color */
+    background: #8e8e92e7; /* Set background color */
     top: 100px; /* Adjust top position */
-    left: -100%; /* Hide initially */
-    text-align: center; /* Center align links */
+    margin-right: -299px;
+    width: 570px;
+    height: 300px;
+    text-align: left; /* Center align links */
     transition: left 0.3s ease; /* Add transition for smoother animation */
     z-index: 999; /* Ensure navigation appears above other content */
+
   }
 
   nav ul li {
     display: block; /* Display links as block for better stacking */
-    margin: 20px 0; /* Adjust margin for better spacing */
+    margin: 12px 10px; /* Adjust margin for better spacing */
+   
   }
 
   nav ul li a {
@@ -457,7 +460,7 @@ a:hover {
   /* Big display image */
   .logo-image {
     max-width: 100%; /* Make image responsive */
-    padding-top: 10px; /* Adjust padding for better spacing */
+    padding-top: 90px; /* Adjust padding for better spacing */
   }
 
   /* Form */
@@ -557,7 +560,7 @@ footer {
         <a href="home.html" class="logo-link">
          <label class="logo">APLOT</label>
         </a>  
-    </di>
+    </div>
 
     <input type="checkbox" id="check">
 
