@@ -394,6 +394,124 @@ a:hover {
       
     }
 
+    /* Default styles */
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  /* Navigation */
+  .logo {
+    font-size: 30px; /* Decrease logo font size */
+    padding-left: 10px; /* Adjust padding for smaller screens */
+  }
+
+  nav ul {
+    float: none; /* Remove float for better alignment */
+    margin-right: 0; /* Remove right margin */
+    text-align: center; /* Center align links */
+    padding-top: 10px; /* Adjust padding for better spacing */
+  }
+
+  nav ul li {
+    display: block; /* Display links as block for better stacking */
+    margin: 10px 0; /* Adjust margin for better spacing */
+  }
+
+  nav ul li a {
+    font-size: 18px; /* Decrease font size */
+    padding: 5px 10px; /* Adjust padding for better spacing */
+  }
+
+  .checkbtn {
+    display: block; /* Display hamburger menu button */
+    position: absolute; /* Position button for mobile */
+    top: 50%; /* Align button vertically */
+    right: 20px; /* Adjust right position */
+    transform: translateY(-50%); /* Center button vertically */
+  }
+
+  nav ul {
+    position: fixed; /* Make navigation fixed */
+    width: 100%; /* Take full width */
+    background: #8e8e92; /* Set background color */
+    top: 100px; /* Adjust top position */
+    left: -100%; /* Hide initially */
+    text-align: center; /* Center align links */
+    transition: left 0.3s ease; /* Add transition for smoother animation */
+    z-index: 999; /* Ensure navigation appears above other content */
+  }
+
+  nav ul li {
+    display: block; /* Display links as block for better stacking */
+    margin: 20px 0; /* Adjust margin for better spacing */
+  }
+
+  nav ul li a {
+    font-size: 20px; /* Increase font size */
+    padding: 10px 0; /* Adjust padding for better spacing */
+  }
+
+  #check:checked ~ ul {
+    left: 0; /* Show navigation when checkbox is checked */
+  }
+
+  /* Big display image */
+  .logo-image {
+    max-width: 100%; /* Make image responsive */
+    padding-top: 10px; /* Adjust padding for better spacing */
+  }
+
+  /* Form */
+  .search-form {
+    width: 90%; /* Adjust width for smaller screens */
+    margin-left: auto; /* Center align form */
+    margin-right: auto; /* Center align form */
+    margin-top: 20px; /* Adjust margin for better spacing */
+  }
+
+  .search-bar {
+    flex-direction: column; /* Display form elements in a column */
+    gap: 10px; /* Add gap between form elements */
+  }
+
+  label {
+    width: 100%; /* Make labels full width */
+    text-align: left; /* Align label text to left */
+  }
+
+  input,
+  button {
+    width: 100%; /* Make inputs and buttons full width */
+  }
+
+  button[type="submit"] {
+    margin-top: 10px; /* Adjust margin for better spacing */
+  }
+
+  /* Card */
+  .card {
+    width: 90%; /* Adjust card width for smaller screens */
+    margin-left: auto; /* Center align card */
+    margin-right: auto; /* Center align card */
+  }
+
+  /* Map */
+  .map {
+    width: 100%; /* Make map full width */
+    margin-top: 20px; /* Adjust margin for better spacing */
+  }
+
+  footer {
+    position: fixed; /* Make footer fixed */
+    width: 100%; /* Take full width */
+    bottom: 0; /* Align footer to bottom */
+    background-color: #000; /* Set background color */
+    color: white; /* Set text color */
+    text-align: center; /* Center align text */
+    padding: 10px 0; /* Add padding for better spacing */
+  }
+}
+
+
     /* Positioning the map for big screens */
     @media (min-width: 768px) {
   .map {
