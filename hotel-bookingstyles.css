@@ -1,0 +1,110 @@
+/* General body styles */
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.word {
+    font-size: 20px;
+    padding: 10px 15px;
+    color: blue;
+    margin-left: 0;
+    margin-top: -5px;
+    align-self: flex-start;
+    text-decoration: underline;
+}
+
+.word a:hover {
+    
+    opacity: 0.8;
+}
+
+/* Booking title styles */
+.booking-title {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.26), rgba(128, 128, 128, 0.041));
+    height: 150px; /* Reduced height */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking-title section h1 {
+    font-size: 36px;
+    margin: 0;
+    color: dodgerblue;
+}
+
+/* Form container to center the form */
+.form-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px); /* Adjust to reduced header height */
+    width: 100%;
+}
+
+/* Form styling */
+form {
+    width: 100%;
+    max-width: 600px; /* Increased width */
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    padding: 20px 40px; /* Adjusted padding */
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px #000000;
+    transform: scale(0.9); /* Zoom out form slightly */
+}
+
+/* Input and select field styling */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+    box-shadow: 2px 2px 4px #000000;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .booking-title section h1 {
+        font-size: 28px;
+    }
+    form {
+        transform: scale(0.85); /* Further scale down on small screens */
+        padding: 20px;
+    }
+    input, select {
+        font-size: 15px;
+    }
+}

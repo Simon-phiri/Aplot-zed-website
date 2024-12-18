@@ -1,17 +1,3 @@
-<?php
-session_start();
-
-// Check for test mode
-$isTestMode = isset($_GET['test']) && $_GET['test'] === 'true';
-
-// Only set userName if there's a valid session, even in test mode
-$userName = (!$isTestMode && isset($_SESSION['user_name'])) ? $_SESSION['user_name'] : '';
-
-// Check if the user is logged in
-$isLoggedIn = !empty($userName);
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,10 +32,10 @@ $isLoggedIn = !empty($userName);
 .ai-icon {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 90px;
     justify-content: center;
     margin-right: 10px; /* Adjust space between AI icon and logo */
-    margin-left: 10px;r
+    margin-left: 20px;r
     font-size: 20px; /* Small size for the icon */
     color: #fff; /* Icon color */
     cursor: pointer;
@@ -82,13 +68,6 @@ $isLoggedIn = !empty($userName);
     margin-right: 8px;
 }
 
- #userGreeting {
-            font-size: 24px;
-            font-family: cursive;
-            margin-top: 7px;
-            margin-left: 40px;
-            text-align: center;
-        }
      
    nav {
   background: #8e8e92;
@@ -174,20 +153,6 @@ $isLoggedIn = !empty($userName);
     opacity: 1;
   }
 }
-
-.explore-container button {
-            width: 100%;
-            padding: 10px;
-            background: linear-gradient(to right, #3498db, #2ecc71);
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .explore-container button:hover {
-            background-color: #0056b3;
-        }
 
 
     nav ul {
@@ -384,6 +349,51 @@ body.dark-mode .btn-custom:hover {
     footer .footer-links a:hover {
       text-decoration: underline;
     }
+
+    .card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card .login-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  display: none; /* Hidden by default */
+  z-index: 10;
+}
+
+.card.restricted {
+  opacity: 0.7; /* Dim restricted cards */
+  pointer-events: none; /* Disable interaction */
+}
+
+.card.restricted .login-message {
+  display: block; /* Show message for restricted cards */
+}
+
+.card a {
+  color: lightblue;
+  text-decoration: underline;
+}
+
+.card a:hover {
+  text-decoration: none;
+}
+
 
 
     @media (max-width: 1024px) {
@@ -963,24 +973,15 @@ body.dark-mode #theme-toggle i {
         </a>
     </div>
 
-    <!-- User Greeting -->
-    <div id="userGreeting" style="display: <?php echo $isLoggedIn ? 'block' : 'none'; ?>;">
-         Hey, <span id="userName"><?php echo htmlspecialchars($userName); ?></span>!
-    </div>
-
-
-    <input type="checkbox" id="check">
-
     <ul>
         <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="bookingForm.php"><i class="fas fa-hotel"></i> Hotels</a></li>
         <li><a href="feedback.php"><i class="fas fa-comments"></i> Feedback</a></li>
         <li><a href="aboutUs.php"><i class="fas fa-users text-primary"></i> About Us</a></li>
         <li id="userOptions" class="dropdown">
-          <a href="#" class="login-toggle" style="background-color: red; color: black; font-size: 12px;">Logout</a>
+          <a style="background-color: dodgerblue; color: white; font-size: 12px;" href="login-join.php">Login</a>
           <ul class="dropdown-menu" style="display: none;">
-           
-            <li><a href="unlogged.html" style="background-color: green; color: white; margin-left: -19px;">Logout</a></li>
+
           </ul>
         </li>
         <li id="theme-toggle"><i class="fas fa-moon"></i></li>
@@ -994,9 +995,7 @@ body.dark-mode #theme-toggle i {
         <div>
             <h1>Welcome to APLOT ✈️</h1>
             <p>Your journey begins with us. Explore flights, book tickets, and travel the world!</p>
-            <div class="explore-container">
-            <button type="submit">Explore more</button>
-          </div>
+            <a href="#features" class="btn btn-custom">Explore Now</a>
         </div>
     </header>
 
@@ -1044,39 +1043,47 @@ body.dark-mode #theme-toggle i {
     <section class="featured-destinations">
       <br>
       <h2>Explore Popular Destinations</h2>
+<!-- Card for Livingstone -->
+<div class="card" id="livingstone-card">
+  <img src="Photos/Livstone.jfif" alt="Livingstone">
+  <div class="card-content">
+    <h4><i class="fas fa-city"></i> Livingstone</h4>
+    <p><i class="far fa-calendar-alt"></i> Feb 29 - Mar 15</p>
+    <p><i class="fas fa-plane-departure"></i> 1 stop 10hrs 40min</p>
+  </div>
+  <h5 class="amount"><i class="fas fa-coins"></i> ZMW 3,500</h5>
+  <div class="login-message">
+    <p>Please <a href="login.html">log in</a> to view this destination.</p>
+  </div>
+</div>
 
-      <!-- Card for Livingstone -->
-      <a href="detailslivingstone.php" class="card" onmouseover="showRoute('Livingstone', -17.8565, 25.8667)">
-        <img src="Photos/Livstone.jfif" alt="Livingstone">
-        <div class="card-content">
-          <h4><i class="fas fa-city"></i> Livingstone</h4>
-          <p><i class="far fa-calendar-alt"></i> Feb 29 - Mar 15</p>
-          <p><i class="fas fa-plane-departure"></i> 1 stop 10hrs 40min</p>
-        </div>
-        <h5 class="amount"><i class="fas fa-coins"></i> ZMW 3,500</h5>
-      </a>
+<!-- Card for Zambia -->
+<div class="card" id="zambia-card">
+  <img src="Photos/OIP.jfif" alt="Zambia">
+  <div class="card-content">
+    <h4><i class="fas fa-map-marked-alt"></i> Zambia</h4>
+    <p><i class="far fa-calendar-alt"></i> Jul 01 - Jul 25</p>
+    <p><i class="fas fa-plane-departure"></i> 1 stop 10hrs 40min</p>
+  </div>
+  <h5 class="amount"><i class="fas fa-coins"></i> ZMW 3,500</h5>
+  <div class="login-message">
+    <p>Please <a href="login.html">log in</a> to view this destination.</p>
+  </div>
+</div>
 
-      <!-- Card for Zambia -->
-      <a href="detailszambia.php" class="card">
-        <img src="Photos/OIP.jfif" alt="Zambia">
-        <div class="card-content">
-          <h4><i class="fas fa-map-marked-alt"></i> Zambia</h4>
-          <p><i class="far fa-calendar-alt"></i> Jul 01 - Jul 25</p>
-          <p><i class="fas fa-plane-departure"></i> 1 stop 10hrs 40min</p>
-        </div>
-        <h5 class="amount"><i class="fas fa-coins"></i> ZMW 3,500</h5>
-      </a>
-
-     <!-- Card for Eastern Province -->
-<a href="detailseastern.php" class="card" onmouseover="showRoute('Eastern Province', -13.6360, 32.6479)">
+<!-- Card for Eastern Province -->
+<div class="card" id="eastern-card">
   <img src="Photos/chipata.jfif" alt="Lower Zambezi National Park">
   <div class="card-content">
     <h4><i class="fas fa-map"></i> Eastern</h4>
     <p><i class="far fa-calendar-alt"></i> May 05 - Jun 02</p>
-    <p><i class="fas fa-plane-departure"></i>1 stop 10hrs 40min</p>
+    <p><i class="fas fa-plane-departure"></i> 1 stop 10hrs 40min</p>
   </div>
   <h5 class="amount"><i class="fas fa-coins"></i> ZMW 18,000</h5>
-</a>
+  <div class="login-message">
+    <p>Please <a href="login.html">log in</a> to view this destination.</p>
+  </div>
+</div>
 
 
       
@@ -1134,149 +1141,168 @@ body.dark-mode #theme-toggle i {
       <i class="fab fa-linkedin"></i>
     </div>
   </footer>
-<script>
- // --- Display User's Name from localStorage ---
-document.addEventListener('DOMContentLoaded', () => {
-    const userName = localStorage.getItem('userName');  // Retrieve user's name
-    const userGreeting = document.getElementById('userGreeting');  // Greeting div
-    const userNameSpan = document.getElementById('userName');  // Name span
 
-    if (userName) {
-        userNameSpan.textContent = userName;  // Display the name
-        userGreeting.style.display = 'block';  // Make the greeting visible
-    }
-});
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    // --- Display User's Name from localStorage ---
+    const userName = localStorage.getItem("userName"); // Retrieve user's name
+    const userGreeting = document.getElementById("userGreeting"); // Greeting div
+    const userNameSpan = document.getElementById("userName"); // Name span
 
-// --- Light/Dark Mode Toggle ---
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-
-// Check if dark mode was previously enabled
-if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-mode');
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-}
-
-themeToggle.addEventListener('click', function () {
-    body.classList.toggle('dark-mode');
-
-    if (body.classList.contains('dark-mode')) {
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        localStorage.setItem('theme', 'dark');  // Save preference
-    } else {
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        localStorage.setItem('theme', 'light');
+    if (userName && userGreeting && userNameSpan) {
+        userNameSpan.textContent = userName; // Display the name
+        userGreeting.style.display = "block"; // Make the greeting visible
     }
 
-    setMapTiles();  // Update the map tiles
-});
+    // --- Light/Dark Mode Toggle ---
+    const themeToggle = document.getElementById("theme-toggle");
+    const body = document.body;
 
-// --- Map Initialization and Route Display ---
-var map = L.map('map').setView([-13.1339, 27.8493], 6);
+    if (themeToggle) {
+        // Check if dark mode was previously enabled
+        if (localStorage.getItem("theme") === "dark") {
+            body.classList.add("dark-mode");
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
 
-// Function to set map tiles based on light/dark mode
-function setMapTiles() {
-    const isDarkMode = body.classList.contains('dark-mode');
-    const tileLayerUrl = isDarkMode
-        ? 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'  // Dark map tiles
-        : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';  // Light map tiles
+        themeToggle.addEventListener("click", function () {
+            body.classList.toggle("dark-mode");
 
-    // Remove existing layers and add the new one
-    map.eachLayer(function (layer) {
-        if (layer instanceof L.TileLayer) {
-            map.removeLayer(layer);
+            if (body.classList.contains("dark-mode")) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem("theme", "dark"); // Save preference
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem("theme", "light");
+            }
+
+            setMapTiles(); // Update the map tiles
+        });
+    }
+
+    // --- Map Initialization and Route Display ---
+    const mapElement = document.getElementById("map");
+    if (mapElement) {
+        const map = L.map(mapElement).setView([-13.1339, 27.8493], 6);
+
+        function setMapTiles() {
+            const isDarkMode = body.classList.contains("dark-mode");
+            const tileLayerUrl = isDarkMode
+                ? "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png" // Dark map tiles
+                : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"; // Light map tiles
+
+            // Remove existing layers and add the new one
+            map.eachLayer((layer) => {
+                if (layer instanceof L.TileLayer) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            L.tileLayer(tileLayerUrl, {
+                attribution:
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }).addTo(map);
+        }
+
+        setMapTiles(); // Set initial map tiles
+
+        let routingControl;
+
+        function showRoute(city, lat, lon) {
+            if (routingControl) {
+                map.removeControl(routingControl);
+            }
+
+            routingControl = L.Routing.control({
+                waypoints: [
+                    L.latLng(-15.3875, 28.3228), // Lusaka
+                    L.latLng(lat, lon), // Destination city
+                ],
+                routeWhileDragging: false,
+                draggableWaypoints: false,
+            }).addTo(map);
+
+            map.setView([-15.3875, 28.3228], 7); // Zoom in to Lusaka
+        }
+
+        function hideRoute() {
+            if (routingControl) {
+                map.removeControl(routingControl);
+            }
+            map.setView([-13.1339, 27.8493], 7); // Reset zoom
+        }
+    }
+
+    // --- Loading Bar and Search Functionality ---
+    const searchForm = document.getElementById("searchForm");
+    const searchResults = document.getElementById("searchResults");
+
+    if (searchForm && searchResults) {
+        const showLoadingBar = () => {
+            searchResults.innerHTML =
+                '<div class="loading-bar">Loading...</div>'; // Show loading bar
+        };
+
+        const hideLoadingBar = () => {
+            searchResults.innerHTML = ""; // Hide loading bar
+        };
+
+        const performSearch = (event) => {
+            event.preventDefault(); // Prevent page reload
+            showLoadingBar();
+
+            setTimeout(() => {
+                hideLoadingBar();
+                displaySearchResults();
+            }, 3000); // Simulated delay
+        };
+
+        const displaySearchResults = () => {
+            searchResults.innerHTML = "<p>Search results go here...</p>";
+        };
+
+        searchForm.addEventListener("submit", performSearch);
+    }
+
+    // --- Restrict Access to Cards for Unauthenticated Users ---
+    const cards = document.querySelectorAll(".card");
+    const isLoggedIn = localStorage.getItem("isLoggedIn"); // Check login state
+
+    cards.forEach((card) => {
+        if (!isLoggedIn) {
+            card.classList.add("restricted"); // Add restricted class
+        } else {
+            card.classList.remove("restricted"); // Remove restriction
+            card.addEventListener("click", () => {
+                // Redirect to respective detail page based on card ID
+                const destination = card.id.replace("-card", "");
+                window.location.href = `details${destination}.html`;
+            });
         }
     });
 
-    L.tileLayer(tileLayerUrl, {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-}
+    // --- Dropdown Menu Toggle ---
+    const userOptions = document.querySelector("#userOptions");
+    if (userOptions) {
+        const dropdownMenu = userOptions.querySelector(".dropdown-menu");
+        const toggleButton = userOptions.querySelector(".login-toggle");
 
-setMapTiles();  // Set initial map tiles
+        if (dropdownMenu && toggleButton) {
+            toggleButton.addEventListener("click", (e) => {
+                e.preventDefault();
+                dropdownMenu.style.display =
+                    dropdownMenu.style.display === "block" ? "none" : "block";
+            });
 
-// Routing control variable
-var routingControl;
-
-// Function to show route from Lusaka to a hovered city
-function showRoute(city, lat, lon) {
-    if (routingControl) {
-        map.removeControl(routingControl);
+            document.addEventListener("click", (e) => {
+                if (!userOptions.contains(e.target)) {
+                    dropdownMenu.style.display = "none";
+                }
+            });
+        }
     }
-
-    routingControl = L.Routing.control({
-        waypoints: [
-            L.latLng(-15.3875, 28.3228),  // Lusaka
-            L.latLng(lat, lon)  // Destination city
-        ],
-        routeWhileDragging: false,
-        draggableWaypoints: false
-    }).addTo(map);
-
-    map.setView([-15.3875, 28.3228], 7);  // Zoom in to Lusaka
-}
-
-// Function to hide the route and reset zoom
-function hideRoute() {
-    if (routingControl) {
-        map.removeControl(routingControl);
-    }
-    map.setView([-13.1339, 27.8493], 7);  // Reset zoom
-}
-
-// --- Loading Bar and Search Functionality ---
-function showLoadingBar() {
-    const loadingBar = document.getElementById('loadingBar');
-    loadingBar.style.display = 'block';  // Show the loading bar
-}
-
-function hideLoadingBar() {
-    const loadingBar = document.getElementById('loadingBar');
-    loadingBar.style.display = 'none';  // Hide the loading bar
-}
-
-// Simulate a search with a loading effect
-function performSearch(event) {
-    event.preventDefault();  // Prevent page reload
-    showLoadingBar();  // Show loading bar
-
-    setTimeout(() => {
-        hideLoadingBar();  // Hide loading bar after delay
-        displaySearchResults();  // Display search results
-    }, 3000);  // Adjust delay as needed
-}
-
-// Example search results function (replace with actual implementation)
-function displaySearchResults() {
-    const searchResults = document.getElementById('searchResults');
-    searchResults.innerHTML = '<p>Search results go here...</p>';
-}
-
-// Attach the search form submission to performSearch function
-document.getElementById('searchForm').addEventListener('submit', performSearch);
-
-document.addEventListener("DOMContentLoaded", () => {
-  const userOptions = document.querySelector("#userOptions");
-  const dropdownMenu = userOptions.querySelector(".dropdown-menu");
-  const toggleButton = userOptions.querySelector(".login-toggle");
-
-  // Toggle dropdown menu
-  toggleButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    dropdownMenu.style.display =
-      dropdownMenu.style.display === "block" ? "none" : "block";
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!userOptions.contains(e.target)) {
-      dropdownMenu.style.display = "none";
-    }
-  });
 });
-
 </script>
-
 
 
 <script src="search.js"></script>

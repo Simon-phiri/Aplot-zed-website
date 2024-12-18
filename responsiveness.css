@@ -1,0 +1,126 @@
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+
+  /* Navbar top section adjustments */
+  .navbar-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .navbar-top ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .navbar-top ul.left, .navbar-top ul.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .navbar-top ul li {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  .navbar-top ul.left li a, .navbar-top ul.right li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .navbar-top ul.left li a i, .navbar-top ul.right li a i {
+    margin-right: 5px;
+  }
+
+  /* Navbar bottom section adjustments */
+  .navbar-bottom {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .navbar-bottom .brand-left {
+    margin-bottom: 10px;
+  }
+
+  .navbar-bottom .menu-right {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .navbar-bottom .menu-right.active {
+    right: 0;
+  }
+
+  .navbar-bottom .menu-right li {
+    margin: 20px 0;
+  }
+
+  .navbar-bottom .search-form {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar-bottom .search-form input {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .navbar-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  /* Showcase section adjustments */
+  .showcase-content {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .showcase-content h1 {
+    font-size: 24px;
+  }
+
+  .showcase-content p {
+    font-size: 16px;
+  }
+
+  .showcase-content .btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  /* General adjustments */
+  .text-center {
+    text-align: center;
+  }
+
+  .bg-light {
+    padding: 20px;
+  }
+}

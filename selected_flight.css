@@ -1,0 +1,447 @@
+body {
+            .header {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color: #f8f9fa;
+                text-align: center;
+                padding: 20px;
+                z-index: 1000;
+                color: green;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .notice {
+            background-color: blue;
+            color: white;
+            padding: 15px;
+            margin: 230px 0;
+            text-align: center;
+        }
+
+        .ragege-selection {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 15px;
+            background-color: black;
+        }
+
+        .ragege-selection h2 {
+            color: white;
+        }
+
+        .ragege-selection p {
+            color: black;
+        }
+
+
+        .ragege-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .ragege-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .ragege-option:hover {
+            transform: scale(1.1);
+        }
+
+        /* General Styling */
+
+section.trip-selection {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    margin: 50px auto;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.trip-selection h3 {
+    font-size: 1.8em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600px;
+}
+
+.trip-selection label {
+    font-size: 1.1em;
+    color: #555;
+    margin-right: 15px;
+}
+
+.trip-selection input[type="radio"] {
+    margin-right: 8px;
+}
+
+.trip-selection input[type="text"],
+.trip-selection input[type="number"],
+.trip-selection select {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.trip-selection input[type="text"]:focus,
+.trip-selection input[type="number"]:focus,
+.trip-selection select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.trip-selection .scanPrice,
+.trip-selection .next-button {
+    width: 50%%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.trip-selection .scanPrice {
+    background-color: #3498db;
+    color: white;
+}
+.trip-selection .next-button {
+    background-color: #28a745;
+    color: white;
+    width: auto; /* Set width to auto */
+    margin-left: 890px; /* Move the next button to the far right */
+}
+
+.trip-selection .scanPrice:hover {
+    background-color: #2980b9;
+}
+
+.trip-selection .next-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.trip-selection .next-button:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    section.trip-selection {
+        padding: 15px;
+    }
+
+    .trip-selection h3 {
+        font-size: 1.6em;
+    }
+
+    .trip-selection input[type="text"],
+    .trip-selection input[type="number"],
+    .trip-selection select {
+        font-size: 0.9em;
+    }
+
+    .trip-selection .scanPrice,
+    .trip-selection .next-button {
+        font-size: 1em;
+
+    }
+}
+
+
+         .modal-content {
+            border-radius: 15px; /* Smooth corners for modern look */
+            background: linear-gradient(145deg, #f0f0f0, #ffffff); /* Subtle gradient */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            padding: 20px; /* Padding inside the modal for spacing */
+        }
+
+        .modal-header {
+            border-bottom: none; /* Clean header without bottom border */
+        }
+
+        .modal-title {
+            font-weight: bold;
+            color: #007bff; /* Primary color for title */
+        }
+
+        .modal-body {
+            font-size: 1.1em; /* Slightly larger font for better readability */
+            line-height: 1.6; /* More space between lines */
+            padding: 10px 0;
+        }
+
+        .modal-body p {
+            margin-bottom: 10px;
+        }
+
+        .modal-footer {
+            border-top: none; /* Remove footer border */
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px; /* Rounded buttons for modern look */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            transform: translateY(-3px); /* Subtle lift on hover */
+        }
+
+        .btn-secondary {
+            border-radius: 25px;
+            padding: 10px 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+        }
+
+        .ticket-info {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow around the info box */
+        }
+
+        .ticket-info p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .modal-content {
+    border-radius: 15px;
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.ticket-header h1.flight-name {
+    font-size: 2em;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.ticket-header p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #6c757d;
+}
+
+.header-line {
+    border: none;
+    height: 2px;
+    background-color: #007bff;
+    margin: 15px 0;
+}
+
+/* Add selected style for ragege-option */
+.ragege-option.selected {
+    background-color: #007bff;
+    color: white;
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Modal style for ticket */
+.modal-content {
+    border-radius: 15px;
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Styling ticket-header */
+.ticket-header h1.flight-name {
+    font-size: 2em;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+}
+
+.ticket-header p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #6c757d;
+}
+
+/* Ticket details layout */
+.ticket-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-details p {
+    margin: 5px 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Footer and barcode styling */
+.ticket-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-line {
+    border: none;
+    height: 2px;
+    background-color: #007bff;
+    margin: 15px 0;
+}
+
+.barcode img {
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    display: block;
+}
+
+
+.ticket-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-details p {
+    margin: 5px 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.ticket-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-line {
+    border: none;
+    height: 2px;
+    background-color: #007bff;
+    margin: 15px 0;
+}
+
+.barcode {
+    margin-top: 20px;
+}
+
+.barcode img {
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Button Styling */
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+}
+
+        /* Additional styling for modern design */
+        .header {
+            padding: 20px;
+            background: #007bff;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .ragege-option {
+            cursor: pointer;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+
+
+        .ragege-option:hover {
+            background-color: #007bff;
+            color: white;
+            transform: translateY(-5px); /* Lift effect on hover */
+        }
+
+        .form-group {
+            margin-top: 10px;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
